@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Nicht veroeffentlicht — nur fuer die eigene Arbeit an den Anleitungen.
+# skills/ ist die Quelle, aus der werkzeug/pack.py die Archive unter
+# docs/dateien/ erzeugt; werkzeug/ enthaelt Regelwerke mit Praxisbezug.
+/skills/
+/werkzeug/
+/.github/

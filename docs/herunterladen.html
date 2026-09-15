@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herunterladen und einrichten · tomedo-KI-Handbuch</title>
+<meta name="description" content="Die neun Anleitungen herunterladen und in Claude, Gemini oder ChatGPT einrichten.">
+<style>
+:root{
+  --ci-green:#89BA17; --ci-green-dark:#5c8010; --ci-green-pale:#f0f6e2;
+  --ci-orange:#EC7404; --ci-orange-dark:#c56003; --ci-orange-pale:#fef0e0;
+  --ink:#1b2530; --text:#374151; --muted:#6b7280; --line:#dfe3e8; --line-light:#e9ecf0;
+  --surface:#f5f7f9; --white:#fff;
+  --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --font-display:Georgia,'Iowan Old Style','Times New Roman',Times,serif;
+  --mono:'SFMono-Regular',Menlo,Consolas,'Liberation Mono',monospace;
+  --top-h:60px; --maxw:820px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--top-h) + 14px)}
+body{margin:0;font-family:var(--font-body);font-size:14px;line-height:1.7;color:var(--text);
+     background:var(--white);-webkit-font-smoothing:antialiased}
+a{color:var(--ci-green-dark)}
+a:hover{color:var(--ink)}
+code{font-family:var(--mono);font-size:.88em;background:var(--surface);border:1px solid var(--line-light);
+     border-radius:3px;padding:.08em .34em;color:var(--ink)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:8px;top:8px;z-index:100;background:var(--white);padding:8px 12px;border:2px solid var(--ci-green)}
+
+/* Kopf */
+.topbar{position:fixed;top:0;left:0;right:0;height:var(--top-h);z-index:40;display:flex;align-items:center;
+        gap:18px;padding:0 18px;background:var(--white);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);white-space:nowrap;
+       text-decoration:none}
+.brand .bt{font-size:14px}
+.brand .bs{color:var(--muted);font-weight:400;font-size:12px}
+.blume{width:26px;height:26px;flex:none}
+.zurueck{margin-left:auto;font-size:13px;color:var(--ci-green-dark);text-decoration:none;white-space:nowrap}
+.zurueck:hover{color:var(--ink)}
+
+main{padding-top:var(--top-h)}
+
+/* Dauerhafte Ruecksprungspalte */
+.layout{display:flex;gap:30px;max-width:1120px;margin:0 auto;padding:0 20px}
+.rueckspalte{position:sticky;top:calc(var(--top-h) + 22px);align-self:flex-start;
+  width:196px;flex:none;padding-top:46px}
+.rs-titel{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 9px}
+.rs-kachel{display:block;border-radius:8px;padding:12px 13px;margin-bottom:8px;color:#fff;
+  text-decoration:none;line-height:1.35}
+.rs-kachel .rs-label{display:block;font-size:11px;color:rgba(255,255,255,.78)}
+.rs-kachel .rs-name{display:block;font-family:var(--font-display);font-size:15px;color:#fff}
+.rs-kachel .rs-was{display:block;font-size:11.5px;color:rgba(255,255,255,.88);margin-top:3px}
+.rs-t1{background:var(--ci-green-dark);box-shadow:inset 0 4px 0 var(--ci-green)}
+.rs-t2{background:var(--ink);box-shadow:inset 0 4px 0 #4a5a6b}
+.rs-t3{background:var(--ci-orange-dark);box-shadow:inset 0 4px 0 var(--ci-orange)}
+.rs-kachel:hover{box-shadow:inset 0 4px 0 rgba(255,255,255,.6),0 4px 14px rgba(27,37,48,.18);color:#fff}
+.rs-kachel:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.rs-start{display:block;font-size:12px;color:var(--muted);text-decoration:none;padding:4px 2px}
+.rs-start:hover{color:var(--ink)}
+.wrap{max-width:var(--maxw);margin:0;padding:0 0 90px;min-width:0;flex:1}
+@media (max-width:1000px){
+  .layout{flex-direction:column;gap:0;max-width:var(--maxw)}
+  .rueckspalte{position:static;width:auto;padding:22px 0 0;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-items:stretch}
+  .rs-titel{grid-column:1/-1;margin:0}
+  .rs-kachel{margin:0}
+  .rs-kachel .rs-was{display:none}
+  .rs-start{grid-column:1/-1}
+  .wrap{padding-bottom:70px}
+}
+@media (max-width:560px){
+  .rueckspalte{grid-template-columns:1fr}
+}
+
+.kopfblock{padding:46px 0 26px}
+.kicker{text-transform:uppercase;letter-spacing:.09em;font-size:11px;color:var(--muted);margin:0 0 10px}
+h1{font-family:var(--font-display);font-weight:400;font-size:34px;line-height:1.2;color:var(--ink);margin:0 0 14px}
+.lead{font-size:16px;line-height:1.65;max-width:64ch;margin:0 0 24px}
+h2{font-family:var(--font-display);font-weight:400;font-size:22px;color:var(--ink);
+   margin:44px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;color:var(--ink);margin:24px 0 6px}
+p{margin:0 0 12px;max-width:66ch}
+ul{margin:0 0 12px;padding-left:18px;max-width:66ch}
+li{margin-bottom:6px}
+
+/* Hauptdownload */
+.dlhaupt{background:var(--ci-orange-pale);border-radius:10px;padding:22px 24px;margin:0 0 8px;
+         box-shadow:inset 0 5px 0 var(--ci-orange)}
+.dlhaupt p{margin:0 0 14px;max-width:60ch}
+.knopf{display:inline-block;background:var(--ci-orange-dark);color:#fff;text-decoration:none;
+       font-weight:600;font-size:15px;border-radius:6px;padding:12px 20px}
+.knopf:hover{background:#a44f02;color:#fff}
+.knopf .gr{font-weight:400;opacity:.85}
+.dlhaupt .neben{font-size:12.5px;color:var(--muted);margin:12px 0 0}
+.dlhaupt .neben a{margin-right:16px;white-space:nowrap}
+
+/* Zwei Wege */
+.wege{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 0}
+.weg{border:1px solid var(--line);border-radius:8px;padding:18px 18px 16px}
+.weg-claude{box-shadow:inset 0 4px 0 var(--ci-green)}
+.weg-andere{box-shadow:inset 0 4px 0 var(--ink)}
+.weg h3{margin:0 0 4px;font-family:var(--font-display);font-weight:400;font-size:18px}
+.weg .wer{font-size:12px;color:var(--muted);margin:0 0 12px}
+ol.schritte{list-style:none;counter-reset:s;margin:0;padding:0}
+ol.schritte li{counter-increment:s;position:relative;padding:0 0 12px 32px;font-size:13px;line-height:1.6}
+ol.schritte li::before{content:counter(s);position:absolute;left:0;top:1px;width:21px;height:21px;
+  border:1px solid var(--ci-green);border-radius:50%;color:var(--ci-green-dark);
+  font-size:11.5px;font-weight:600;line-height:20px;text-align:center}
+.weg-andere ol.schritte li::before{border-color:var(--ink);color:var(--ink)}
+ol.schritte li b{display:block;color:var(--ink)}
+
+/* Promptfelder */
+.prompt{border:1px solid var(--line);background:var(--surface);border-radius:6px;margin:10px 0 14px}
+.prompt header{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:8px 12px;border-bottom:1px solid var(--line)}
+.prompt header span{font-weight:600;font-size:12.5px;color:var(--ink)}
+.prompt pre{margin:0;padding:12px;overflow-x:auto;font:400 12px/1.6 var(--mono);
+  white-space:pre-wrap;word-break:break-word;color:var(--ink)}
+button.kopieren{font:600 12px/1 var(--font-body);color:#fff;background:var(--ci-green-dark);
+  border:0;border-radius:4px;padding:7px 12px;cursor:pointer}
+button.kopieren:hover{background:var(--ink)}
+button.kopieren:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* Paketliste */
+.dl-liste{border-top:1px solid var(--line-light);margin-top:12px}
+.dl-zeile{display:flex;gap:16px;align-items:baseline;justify-content:space-between;
+  padding:11px 0;border-bottom:1px solid var(--line-light)}
+.dl-txt{max-width:48ch}
+.dl-name{display:block;font-weight:600;color:var(--ink);font-size:13.5px}
+.dl-wofuer{display:block;font-size:12.5px;color:var(--muted);line-height:1.55}
+.dl-lad{white-space:nowrap;text-align:right;font-size:13px}
+.dl-lad .gr{display:block;font-size:11px;color:var(--muted)}
+.dl-nur-it{font-weight:400;color:var(--muted)}
+
+/* Rückweg */
+.rueckweg{margin:36px 0 0;padding:20px 22px;background:var(--surface);border-radius:8px;
+  display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between}
+.rueckweg p{margin:0;font-size:13px;max-width:44ch}
+.rueckweg a.zurueckknopf{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+  font-weight:600;font-size:13.5px;border-radius:6px;padding:10px 18px;white-space:nowrap}
+.rueckweg a.zurueckknopf:hover{background:#000;color:#fff}
+.hinweis{border-left:3px solid var(--ci-orange);background:var(--ci-orange-pale);
+  padding:12px 16px;border-radius:0 6px 6px 0;margin:20px 0;font-size:13px}
+.hinweis p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-size:12.5px;color:var(--muted);max-width:66ch}
+
+@media (max-width:820px){
+  .wege{grid-template-columns:1fr}
+  .dl-zeile{flex-direction:column;gap:3px}
+  .dl-lad{text-align:left}
+  .dl-lad .gr{display:inline;margin-left:6px}
+  h1{font-size:26px}
+  .brand .bs{display:none}
+}
+@media print{
+  .topbar{position:static} main{padding-top:0}
+  button.kopieren,.rueckweg a.zurueckknopf{display:none}
+  .prompt{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><svg class="blume" viewBox="0 0 440 453.77" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="#94bc26" d="M217.59,5c-8.81,0-15.95,7.14-15.95,15.95v179.42c0,7.13,8.46,11.62,14.52,7.85l53.16-30.81c7.56-4.7,11.12-15.04,11.12-23.94V20.95c0-8.81-7.14-15.95-15.95-15.95h-46.91Z"/><path fill="#94bc26" d="M400.85,138.93c-4.4-7.63-14.16-10.24-21.78-5.84l-127.17,73.42-28.22,16.29c-6.18,3.57-5.83,13.13.46,16.5l53.26,30.63c7.85,4.2,18.59,2.11,26.3-2.34l114.77-66.26c7.63-4.4,10.24-14.16,5.84-21.78l-23.45-40.62Z"/><path fill="#94bc26" d="M376.92,365.71c4.4-7.63,1.79-17.38-5.84-21.78l-127.17-73.42-28.22-16.29c-6.18-3.57-14.29,1.51-14.06,8.64l.1,61.44c.29,8.9,7.46,17.15,15.17,21.6l114.77,66.26c7.63,4.4,17.38,1.79,21.78-5.84l23.45-40.62Z"/><path fill="#de772d" d="M169.11,448.77c8.81,0,15.95-7.14,15.95-15.95v-146.84s0-32.58,0-32.58c0-7.13-8.46-11.62-14.52-7.85l-53.16,30.81c-7.56,4.7-11.12,15.04-11.12,23.94v132.52c0,8.81,7.14,15.95,15.95,15.95h46.91Z"/><path fill="#de772d" d="M9.77,102.35c-4.4,7.63-1.79,17.38,5.84,21.78l127.17,73.42,28.22,16.29c6.18,3.57,14.29-1.51,14.06-8.64l-.1-61.44c-.29-8.9-7.46-17.15-15.17-21.6L55,55.89c-7.63-4.4-17.38-1.79-21.78,5.84l-23.45,40.62Z"/></svg><span><span class="bt">tomedo-KI-Handbuch</span><br><span class="bs">anwenden · verstehen · konfigurieren</span></span></a>
+  <a class="zurueck" href="index.html">← Zurück zum Handbuch</a>
+</header>
+
+<main id="inhalt"><div class="layout">
+
+<aside class="rueckspalte" aria-label="Zurück ins Handbuch">
+  <p class="rs-titel">Zurück ins Handbuch</p>
+  <a class="rs-kachel rs-t1" href="index.html#t1"><span class="rs-label">Teil 1 · Anwenden</span><span class="rs-name">Anwenderhandbuch</span><span class="rs-was">Bedienung, Grenzen, Fehlerbilder</span></a>
+  <a class="rs-kachel rs-t2" href="index.html#t2"><span class="rs-label">Teil 2 · Verstehen</span><span class="rs-name">Expertenhandbuch</span><span class="rs-was">Messungen, Belege, offene Fragen</span></a>
+  <a class="rs-kachel rs-t3" href="index.html#t3"><span class="rs-label">Teil 3 · Konfigurieren</span><span class="rs-name">Die Anleitungen</span><span class="rs-was">Katalog, Einsatz, eigene bauen</span></a>
+  <a class="rs-start" href="index.html">↑ Zur Startseite</a>
+</aside>
+
+<div class="wrap">
+
+<div class="kopfblock">
+  <p class="kicker">Teil 3 · Konfigurieren</p>
+  <h1>Herunterladen und einrichten</h1>
+  <p class="lead">Neun Arbeitsanleitungen, die einer KI beibringen, wie tomedo funktioniert.
+  Kostenlos, ohne Anmeldung, nichts zu installieren. Für Claude sind sie sofort
+  einsatzbereit; für Gemini und ChatGPT gibt es eine Starthilfe.</p>
+
+  <div class="dlhaupt">
+    <p><strong>Alle neun auf einmal.</strong> Ein Archiv, darin die neun Einzelpakete —
+    jedes davon wird später einzeln und <strong>ungeöffnet</strong> hochgeladen.</p>
+    <a class="knopf" href="dateien/tomedo-ki-skills-alle.zip" data-datei="tomedo-ki-skills-alle.zip" download>Alle neun herunterladen <span class="gr">· ZIP, 344 KB</span></a>
+    <p class="neben"><a href="#einzeln">Lieber einzeln auswählen</a><a href="#claude">Direkt zur Einrichtung</a></p>
+  </div>
+</div>
+
+<h2 id="claude">Welche KI benutzen Sie?</h2>
+<div class="wege">
+
+  <div class="weg weg-claude">
+    <h3>Claude</h3>
+    <p class="wer">Hier sind die Anleitungen gebaut und getestet. Drei Schritte, keine fünf Minuten.</p>
+    <ol class="schritte">
+      <li><b>Code-Ausführung einschalten</b>Einstellungen → <em>Capabilities</em> → „Code execution and file creation" aktivieren. Ohne diesen Schalter ist der Skills-Bereich ausgegraut — daran scheitern die meisten ersten Versuche.</li>
+      <li><b>ZIP hochladen</b><em>Customize</em> → <em>Skills</em> → Schaltfläche „+" → Datei auswählen, nicht auspacken. Claude fasst danach in einem Satz zusammen, wofür es die Anleitung hält; das ist die Probe darauf, ob sie später greift. Dann den Schalter umlegen — hochgeladen ist noch nicht eingeschaltet.</li>
+      <li><b>Einfach fragen</b>Die Anleitung wird nicht aufgerufen, sondern erkannt: „Wie lese ich im Arztbrief den Wert aus einem Patientenformular aus?" genügt. Laden Sie ruhig alle neun hoch — Claude liest zunächst nur die Kurzbeschreibungen.</li>
+    </ol>
+  </div>
+
+  <div class="weg weg-andere">
+    <h3>Gemini oder ChatGPT</h3>
+    <p class="wer">Bei Gemini heißen sie <em>Gems</em>, bei ChatGPT <em>Custom GPTs</em>. Das Format lässt sich übertragen — <strong>getestet ist es nicht</strong>, und Fragen dazu kann ich nicht beantworten.</p>
+    <ol class="schritte">
+      <li><b>Grenzen kennen</b>Ein Gem nimmt bis zu <strong>zehn</strong> Wissensdateien; ein Custom GPT bis zu 20, begrenzt aber das Anweisungsfeld auf <strong>8.000 Zeichen</strong> und sucht im Wissen nur ausschnittweise. Deshalb sind zwei Umbauten nötig: Dateien zusammenfassen und den Navigator kürzen.</li>
+      <li><b>Umbau von der eigenen KI machen lassen</b>ZIP auspacken, <code>SKILL.md</code> und die Dateien aus <code>references/</code> in den Chat laden, Prompt A hinterherschicken. Nehmen Sie das stärkste Modell, das Ihr Zugang hergibt.</li>
+      <li><b>Prompt B nicht vergessen</b>Er gehört ans Ende des Anweisungsfelds und ist der wichtigere von beiden: Ohne ihn antwortet ein Gem oder GPT aus dem Allgemeinwissen weiter — und genau dort entstehen Briefkommandos, die es nicht gibt.</li>
+      <li>
+<b>Beim Aktualisieren zuerst aufräumen</b>Eine neue Fassung ersetzt die alte nicht von selbst. Löschen Sie im Gem oder GPT erst sämtliche Wissensdateien der bisherigen Fassung, laden Sie danach die neuen hoch und lassen Sie das Anweisungsfeld mit Prompt A neu erzeugen. Bleiben alte Dateien liegen, antwortet das Modell aus zwei Ständen zugleich — das fällt erst an der falschen Auskunft auf. Welche Fassung Sie haben, steht in der <code>SKILL.md</code> ganz oben im Feld <code>version</code>.</li>
+    </ol>
+  </div>
+</div>
+
+<h3>Prompt A · Umbau — einmal je Anleitung</h3>
+<div class="prompt">
+  <header><span>In den Chat kopieren, nachdem die Dateien hochgeladen sind</span><button class="kopieren" data-ziel="pA" type="button">Kopieren</button></header>
+<pre id="pA">Zielplattform: [Gemini Gem] ODER [ChatGPT Custom GPT] — Zutreffendes stehen lassen.
+
+Du bekommst eine Arbeitsanleitung im Claude-Skill-Format: eine Navigator-Datei
+SKILL.md und mehrere Referenzdateien aus references/. Baue daraus eine
+Konfiguration für die oben genannte Zielplattform.
+
+Grenzen der Zielplattform
+- Gemini Gem: Anweisungsfeld frei; maximal zehn Wissensdateien; Dateien gelangen
+  weitgehend vollständig in den Kontext.
+- ChatGPT Custom GPT: Anweisungsfeld maximal 8.000 Zeichen; bis zu 20
+  Wissensdateien; Wissen wird ausschnittweise gesucht, nicht vollständig gelesen.
+
+Aufgaben
+1. Schreibe das Anweisungsfeld neu — auf Basis von SKILL.md, nicht als Kopie.
+   Hinein gehören: Zweck, Einsatzgrenzen ("wofür ausdrücklich nicht"), die
+   Auslösestichworte, die Regel welche Wissensdatei wann zu lesen ist, sowie alle
+   Qualitäts- und Prüfregeln. Nicht hinein gehören Kataloge, Tabellen und
+   Syntaxlisten. Nenne am Ende die Zeichenzahl.
+2. Plane die Wissensdateien so, dass die Dateigrenze eingehalten wird. Fasse
+   zusammen, wo thematisch sinnvoll. Inhalte dürfen umsortiert, aber nicht
+   gekürzt werden. Gib den Plan als Tabelle aus: Zieldatei, Quelldateien, Inhalt.
+3. Stelle jeder Zieldatei einen Kopfblock voran: drei Zeilen "Diese Datei enthält",
+   danach ein Abschnittsverzeichnis. Nummeriere die Abschnitte durchgehend. Grund:
+   Bei der Ausschnittsuche muss ein einzelner Treffer seinen Kontext mitbringen.
+4. Erfinde nichts. Ergänze keine Kommandos, Menüpfade, Feldnamen oder Parameter,
+   die nicht in den Quelldateien stehen. Was unklar ist, kennzeichne als offene
+   Frage — im Zweifel lieber eine Lücke als eine plausible Erfindung.
+5. Übernimm Status- und Belegvermerke wortgleich, etwa
+   [Referenzinstallation, TT.MM.JJJJ], [plausibel], [zu evaluieren]. Sie
+   unterscheiden Gemessenes von Abgeleitetem; ohne sie wird jede Aussage gleich
+   stark und die Anleitung unbrauchbar.
+6. Sprache: Deutsch, Sie-Form, kein Gendern, sachlich.
+
+Ausgabe in vier Blöcken
+A  Anweisungsfeld, fertig zum Kopieren, mit Zeichenzahl
+B  Dateiplan als Tabelle
+C  je Zieldatei der Kopfblock
+D  Prüfliste: drei Beispielfragen mit der jeweils erwarteten Reaktion, an denen
+   ich nach dem Einrichten testen kann, ob die Konfiguration greift</pre>
+</div>
+<p>Die Wissensdateien schreibt die KI danach auf Zuruf zusammen, eine nach der anderen.
+Alles auf einmal geht regelmäßig schief.</p>
+
+<h3>Prompt B · Betrieb — ans Ende des Anweisungsfelds</h3>
+<div class="prompt">
+  <header><span>Dauerhaft in die Konfiguration übernehmen</span><button class="kopieren" data-ziel="pB" type="button">Kopieren</button></header>
+<pre id="pB">Arbeitsweise bei jeder Antwort
+- Sieh zuerst in den Wissensdateien nach, bevor du antwortest. Allgemeinwissen über
+  Praxissoftware ist hier keine zulässige Quelle.
+- Nenne zu jeder konkreten Angabe — Kommando, Menüpfad, Feldname, Parameter — die
+  Wissensdatei und den Abschnitt, aus dem sie stammt.
+- Findest du nichts, sage das ausdrücklich und rate nicht. Ein "steht hier nicht
+  drin" ist brauchbar, eine erfundene Syntax kostet eine halbe Stunde Fehlersuche.
+- Gib Syntax wortgleich wieder, ohne Glättung.
+- Empfiehl bei allem, was in die Konfiguration geht, den Test im Testsystem.</pre>
+</div>
+
+<div class="hinweis">
+  <p><strong>Was bei Gems und GPTs anders bleibt.</strong> Beide lesen nicht gezielt nach:
+  Beim Custom GPT kommen Ausschnitte per Suche, bei Nachschlagewerken wie den rund 580
+  Briefkommandos heißt das Treffer ja, Vollständigkeit nein. Fragen Sie eng („Welches
+  Kommando liefert X?") statt weit („Liste alle Kommandos für Y"). Und prüfen Sie nach dem
+  Einrichten mit der Prüfliste aus Block D — drei Fragen, fünf Minuten.</p>
+</div>
+
+<h2 id="einzeln">Die neun Anleitungen einzeln</h2>
+<p>Jede Anleitung greift eigenständig; man muss nicht alle nehmen. Wer nur Briefe baut,
+kommt mit zweien aus.</p>
+<div class="dl-liste">
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Kartei-Chat-Prompts</span><span class="dl-wofuer">Fragen an den Kartei-Chat bauen, die nicht abrutschen: Anker, Vorbehaltssatz, Typdefinition, Fehlerkatalog, Testprotokoll.</span></span><span class="dl-lad"><a href="dateien/karteichat-prompting.zip" data-datei="karteichat-prompting.zip" download>Herunterladen</a><span class="gr">ZIP, 28 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Briefkommandos</span><span class="dl-wofuer">Rund 580 Kommandos und 14 Konfiguratoren als Nachschlagewerk — Platzhalter, Bedingungen, Tabellen, Labor- und Formularwerte.</span></span><span class="dl-lad"><a href="dateien/tomedo-kommandos.zip" data-datei="tomedo-kommandos.zip" download>Herunterladen</a><span class="gr">ZIP, 52 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Aktionsketten</span><span class="dl-wofuer">Auslöser, Bedingungen, Fragen und der vollständige Aktionstypen-Katalog — samt der Aktion „KI-Prompt".</span></span><span class="dl-lad"><a href="dateien/tomedo-aktionsketten.zip" data-datei="tomedo-aktionsketten.zip" download>Herunterladen</a><span class="gr">ZIP, 23 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Textbausteine</span><span class="dl-wofuer">Bausteine mit Frage-Antwort-Dialogen: Mehrfachauswahl, Trennzeichen, Standardtexte, Aktionsketten aus einer Antwort heraus.</span></span><span class="dl-lad"><a href="dateien/tomedo-textbausteine.zip" data-datei="tomedo-textbausteine.zip" download>Herunterladen</a><span class="gr">ZIP, 11 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Patientenformulare</span><span class="dl-wofuer">Formulare für arzt-direkt vorbereiten und überarbeiten: Feldtypen, Stammdaten-Anbindung, Score-Felder, Prüfregeln vor dem Ausspielen.</span></span><span class="dl-lad"><a href="dateien/tomedo-patientenformulare.zip" data-datei="tomedo-patientenformulare.zip" download>Herunterladen</a><span class="gr">ZIP, 41 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Statistik und HQL</span><span class="dl-wofuer">Das Datenmodell, validierte JOIN-Pfade, Query-Bausteine und 46 dokumentierte Fehlerquellen. Das umfangreichste Paket.</span></span><span class="dl-lad"><a href="dateien/tomedo-statistik-hql.zip" data-datei="tomedo-statistik-hql.zip" download>Herunterladen</a><span class="gr">ZIP, 140 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Metabase</span><span class="dl-wofuer">Abfragen ins Dashboard übersetzen und aus dem Dashboard zurück in die Kartei springen.</span></span><span class="dl-lad"><a href="dateien/tomedo-metabase-migration.zip" data-datei="tomedo-metabase-migration.zip" download>Herunterladen</a><span class="gr">ZIP, 19 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Navigation</span><span class="dl-wofuer">Damit die KI die Menüs kennt: Pflegeorte, Klickstrecken, Einstellungen gegenüber Admin-Bereich, Skript-Anbindung.</span></span><span class="dl-lad"><a href="dateien/tomedo-navigation.zip" data-datei="tomedo-navigation.zip" download>Herunterladen</a><span class="gr">ZIP, 18 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">LLM-Service-Endpunkt <span class="dl-nur-it">— nur für die Praxis-IT</span></span><span class="dl-wofuer">Direkte Aufrufe an den tomedo-Server, Modellwahl, Kosten und Fehlerdiagnose. Bewusst als Zusatz, nicht für den Alltag.</span></span><span class="dl-lad"><a href="dateien/tomedo-llm-endpunkt.zip" data-datei="tomedo-llm-endpunkt.zip" download>Herunterladen</a><span class="gr">ZIP, 17 KB</span></span></div>
+</div>
+
+<h2>Dieses Handbuch mitnehmen</h2>
+<p>Alle drei Teile in einer Datei — zum Ausdrucken für die Teambesprechung oder zum
+Weiterverarbeiten in eigenen Unterlagen.</p>
+<div class="dl-liste">
+<!-- PDF vorerst nicht veroeffentlicht, Stand wird neu erzeugt. Zum Wiedereinschalten diesen Kommentar entfernen:
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">PDF</span><span class="dl-wofuer">Gesetzt für A4, mit Inhaltsverzeichnis, Seitenzahlen und allen Diagrammen. Zum Ausdrucken und Weitergeben.</span></span><span class="dl-lad"><a href="dateien/tomedo-KI-Handbuch.pdf" data-datei="tomedo-KI-Handbuch.pdf">Herunterladen</a><span class="gr">PDF</span></span></div>
+-->
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Markdown</span><span class="dl-wofuer">Teil 1 bis 3 als reiner Text — zum Zitieren, Korrigieren oder Übernehmen in eigene Unterlagen. Teil 4 steht nur in der HTML-Fassung und im PDF.</span></span><span class="dl-lad"><a href="dateien/tomedo-KI-Handbuch.md" data-datei="tomedo-KI-Handbuch.md" download>Herunterladen</a><span class="gr">MD, 118 KB</span></span></div>
+</div>
+
+<div class="rueckweg">
+  <p><strong>Fertig heruntergeladen?</strong> Was in den einzelnen Anleitungen steckt,
+  wann sie greifen und woran man ein falsches Ergebnis erkennt, steht im Handbuch.</p>
+  <a class="zurueckknopf" href="index.html#t3">← Zurück zum Skill-Handbuch</a>
+</div>
+
+<footer>
+  <p>Kürzel für Karteieintragstypen sind je Praxis verschieden und stehen in den Anleitungen
+  als Platzhalter — wo einer auftaucht, gehört Ihr eigenes Kürzel hinein; wie Sie es finden,
+  steht jeweils daneben. Alles Erzeugte gehört ins Testsystem, bevor es produktiv geht.</p>
+  <p>Kein Anspruch auf Vollständigkeit oder Richtigkeit. Keine medizinische, rechtliche oder
+  abrechnungstechnische Beratung. tomedo und zollsoft sind Marken der zollsoft GmbH; diese
+  Seite steht in keiner Verbindung zum Hersteller.</p>
+</footer>
+
+</div></div></main>
+
+<script>
+/* Wo liegen die Download-Dateien?  BASIS_DL = Ordner neben dieser Seite.
+   Liegen sie woanders (z. B. Cloud-Speicher), hier je Datei die volle Adresse eintragen:
+   const QUELLEN_DL = { "tomedo-ki-skills-alle.zip": "https://cloud.example.org/s/ABC/download" }; */
+const BASIS_DL = "dateien/";
+const QUELLEN_DL = {};
+document.querySelectorAll('[data-datei]').forEach(function(a){
+  var d = a.dataset.datei;
+  if (QUELLEN_DL[d]) { a.href = QUELLEN_DL[d]; a.removeAttribute('download'); }
+  else { a.href = BASIS_DL + d; }
+});
+
+document.querySelectorAll('button.kopieren').forEach(function(b){
+  b.addEventListener('click', function(){
+    var txt = document.getElementById(b.dataset.ziel).innerText;
+    var fertig = function(){ var alt=b.textContent; b.textContent='Kopiert';
+      setTimeout(function(){ b.textContent=alt; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(fertig, function(){ ersatz(txt, fertig); });
+    } else { ersatz(txt, fertig); }
+  });
+});
+function ersatz(txt, fertig){
+  var ta=document.createElement('textarea');
+  ta.value=txt; ta.setAttribute('readonly','');
+  ta.style.position='absolute'; ta.style.left='-9999px';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); fertig(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>
