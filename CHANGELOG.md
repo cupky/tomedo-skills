@@ -3,6 +3,27 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.3 — 2026-09-19
+
+Praxisinterna sind ab jetzt eine eigene Datei je Anleitung. In `tomedo-statistik-hql`
+heißt sie `references/praxis-interna.md`. Dort — und nur dort — stehen Kürzel, Namen und
+gemessene Werte einer konkreten Installation. Der übrige Text nennt dieselben
+Sachverhalte generisch: mit Platzhalter (`<TYP-A>`) und einer Query, mit der Sie den
+eigenen Wert ermitteln.
+
+Ausgeliefert wird eine leere, erklärte Vorlage dieser Datei. Sie ist zum Ausfüllen
+gedacht — tragen Sie Ihre Kürzel und Messwerte ein, dann arbeitet die KI mit Ihren
+Werten statt mit Vermutungen. Beim Aktualisieren auf eine neue Fassung die eigene
+Fassung dieser Datei stehen lassen, sonst ist die Erhebung weg.
+
+Bisher hieß die Datei `instanz.md` und wurde beim Packen ersatzlos entfernt; das
+Lese-Routing zeigte damit im ausgelieferten Stand ins Leere.
+
+| Anleitung | Version | geändert |
+|---|---|---|
+| tomedo-statistik-hql | 1.3 | `praxis-interna.md` als Überlagerung, Lese-Routing angepasst |
+| übrige acht | unverändert | — |
+
 ## 1.2 — 2026-09-19
 
 Korrektur in `tomedo-statistik-hql`: Die Anleitung beschrieb den DATE-Filter als
