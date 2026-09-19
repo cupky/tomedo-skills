@@ -3,6 +3,26 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.2 — 2026-09-19
+
+Korrektur in `tomedo-statistik-hql`: Die Anleitung beschrieb den DATE-Filter als
+`DATE;Offset;Label;Spalte;Operator`. Gemessen an vier Varianten in zwei Läufen expandiert
+das Tag zu `( Komponente3 'Datum' ) Komponente4` — die dritte Komponente trägt Spalte **und**
+Operator. Wer der bisherigen Beschreibung folgte, erzeugte immer ungültiges SQL. Die erste
+Komponente ist zudem kein Tagesoffset: sie schaltet nur die Uhrzeit, das Datum steht immer
+auf heute. Eine relative Vorbelegung wie „Monatsanfang" ist mit DATE deshalb nicht möglich;
+dafür trägt `SELECTION` vollwertiges SQL einschließlich `date_trunc`.
+
+Neu beschrieben sind außerdem der Ausführungsweg — ZS-Tags lösen ausschließlich in einer
+gespeicherten Statistik vom Typ SQL auf, im Datenbank-Connector und in Metabase gehen sie
+roh an PostgreSQL — und die Opt-in-Falle: ein nicht angehakter Parameter expandiert zu
+Leerstring und lässt das vorangestellte `AND` stehen.
+
+| Anleitung | Version | geändert |
+|---|---|---|
+| tomedo-statistik-hql | 1.2 | DATE-Komponentensemantik korrigiert, Ausführungsweg, Opt-in-Falle, Referenzmuster, SELECTION verifiziert |
+| übrige acht | unverändert | — |
+
 ## 1.1 — 2026-09-15
 
 Einarbeitung der angestauten Erkenntnisse aus 41 Arbeitssitzungen. 94 Änderungsblöcke
