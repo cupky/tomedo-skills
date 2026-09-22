@@ -3,6 +3,40 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.7 — 2026-09-22
+
+Die Kommando-Inventur des Kartei-Chats wurde ein zweites Mal gefahren — einmal vor und einmal
+nach einer Nachpflege derselben Akte. Das Ergebnispaar ist der eigentliche Befund:
+
+**Vorher konnte der Chat mit zwei Datenklassen arbeiten, nachher mit fünf.** Verordnungen kamen
+danach mit PZN, Dosis und Einnahmeschema zurück, die Arbeitsunfähigkeit mit Zeitraum und ICD,
+die Freitextdiagnosen ebenfalls. Am Chat hatte sich nichts geändert, nur an der Dokumentation.
+**Briefkommandos koppeln den KI-Nutzen unmittelbar an die Dokumentationsdisziplin** — kein
+Prompt-Kniff ersetzt einen gepflegten Datensatz.
+
+Damit wird ein Beispiel der Fassung 1.2 hinfällig: Dort stand, der gefährlichste Fall sei ein
+Kommando, das einen gültigen Wert 0 liefert. Das war an der ungepflegten Akte gemessen. Der
+bleibende Befund ist schärfer — `medikamentenplan` und `med` bleiben leer, **obwohl die
+Prüfabfrage `medikamenteVorhanden` den Wert 1 meldet**, weil tabellenerzeugende Kommandos im
+Chat-Eingabefeld nicht auflösen. Der Umweg führt über den Karteieintragstyp.
+
+**Neu ist der stärkste bisher gemessene Baustein: der Medikationsabgleich.** Verordnung gegen
+Karteitext, zwei Anker plus Prüfauftrag, 20 Läufe. Die Dosisabweichung fand er 20 von 20 Mal,
+Handelsname und Wirkstoffname setzte er in 18 von 20 Fällen gleich — das leistet kein
+Zeichenvergleich. Kein erfundenes Präparat. Die Grenze gehört dazu: In 4 von 20 Läufen führte
+er ein abgesetztes Präparat als aktuelle Medikation mit auf, weil der Absetz-Eintrag noch im
+Ankerfenster lag.
+
+Ebenfalls neu: **`invTime` wählt vom Aktenanfang, nicht vom Ende.** Bei kleinen Anzahlen
+verankert der Flag damit die ältesten statt der neuesten Einträge — und die Antwort sieht in
+beiden Fällen gleich souverän aus.
+
+| Anleitung | Version | geändert |
+|---|---|---|
+| karteichat-prompting | 1.3 | zweite Inventur, Medikationsabgleich, `invTime`-Falle, Tabellenkommando-Grenze, Belegbasis auf 376 Läufe, Checkliste von 26 auf 28 Punkte |
+| Handbuch | — | Teil 1 Kapitel 5 um den Pflege-Befund ergänzt |
+| übrige acht | unverändert | — |
+
 ## 1.6 — 2026-09-22
 
 Der Rückstand aus Fassung 1.1 ist abgearbeitet. Damals wurden Erkenntnisse aus 41

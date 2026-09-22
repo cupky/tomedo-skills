@@ -304,6 +304,12 @@ wirkt: der Wert vor Augen **und** der ausdrückliche Auftrag, ihn zu prüfen.
   steht, kommt nicht — und zwar kommentarlos. Lassen Sie sich jedes Kommando einmal ausgeben,
   bevor Sie sich darauf verlassen.
 
+**Und die gute Nachricht dazu.** Wir haben dieselbe Akte zweimal geprüft — einmal vorher und
+einmal, nachdem die Medikation, die Arbeitsunfähigkeit und die Diagnosen ordentlich in die
+Felder eingetragen waren. Vorher konnte der Chat mit zwei Datenarten arbeiten, danach mit fünf.
+**Am Chat hatte sich nichts geändert, nur an der Dokumentation.** Was Sie sauber eintragen,
+können Sie hinterher verwenden — was Sie in den Fließtext schreiben, nicht.
+
 **Und ganz praktisch:** Diese Kommandos tippt niemand auswendig, den Prüfsatz auch nicht. Legen
 Sie beides einmal als Textbaustein an. Danach ist es ein Klick.
 
