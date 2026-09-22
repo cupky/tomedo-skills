@@ -3,6 +3,41 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.6 — 2026-09-22
+
+Der Rückstand aus Fassung 1.1 ist abgearbeitet. Damals wurden Erkenntnisse aus 41
+Arbeitssitzungen eingearbeitet, ohne die Angaben der eigenen Installation herauszutrennen; seither
+stand in `tomedo-statistik-hql` Vokabular und Zahlenmaterial einer konkreten Praxis.
+
+**Der wichtigste Teil betrifft nicht Kürzel, sondern Personen.** Eine Tabelle listete, wie viele
+Abwesenheitstage auf welchen Sperrgrund entfallen und wie viele Mitarbeiter betroffen sind — bei
+22 Beschäftigten sind „86 Tage bei einem Mitarbeiter" und „Elternzeit, zwei Mitarbeiter" Aussagen
+über identifizierbare Personen, im ersten Fall eine über ihren Gesundheitszustand. Solche
+Zählungen stehen jetzt ausschließlich in der nicht ausgelieferten Praxis-Datei. Im Text steht
+stattdessen die Abfrage, mit der jede Praxis den eigenen Wert ermittelt — mit dem ausdrücklichen
+Hinweis, dass das Ergebnis personenbezogen ist und lokal bleibt.
+
+Ebenso ausgelagert: der Terminartkatalog mit Bezeichnungen und Fallzahlen sowie die Auflösung
+praxiseigener Abkürzungen. Die **Lehren** bleiben vollständig im Text und sind teilweise besser
+als vorher — etwa, dass ein Terminart-Kürzel doppelt existiert (einmal als Kapazitätsblock,
+einmal als buchbarer Termin) und ein Filter ohne `infotermin` die Fallzahl vervielfacht. Das gilt
+überall; nur die konkreten Kürzel und Zahlen waren praxisspezifisch.
+
+**Neu ist eine Prüfregel, die diesen Rückstand künftig verhindert.** Sie schlägt bei
+praxiseigenen Kalender- und Terminartbezeichnungen an. Die verbliebenen zehn Stellen sind einzeln
+begründet freigegeben — dort trägt das Kürzel eine Lehre, die mit einem Platzhalter nicht mehr
+nachvollziehbar wäre. Jede **neue** Stelle bricht den Bau ab. Damit ist der Rückstand keine Liste
+in einer Datei mehr, die niemand liest, sondern eine Prüfung.
+
+Nicht erfasst wird die bloße Nennung des Fremdprodukts ArZeKo — ein Produktname ist kein
+Praxisbezug.
+
+| Anleitung | Version | geändert |
+|---|---|---|
+| tomedo-statistik-hql | 1.6 | Abwesenheits- und Terminartzahlen ausgelagert, Ermittlungsabfragen ergänzt, Prüfregel für Organisationsvokabular |
+| tomedo-kommandos · tomedo-metabase-migration | unverändert | je ein Beispielwert generisch gefasst |
+| übrige sechs | unverändert | — |
+
 ## 1.5 — 2026-09-22
 
 Nachtrag desselben Tages. Die Prüfung, die vor jeder Auslieferung läuft, hat einen
