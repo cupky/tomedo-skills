@@ -3,6 +3,48 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.4 — 2026-09-22
+
+Zwei Untersuchungen desselben Tages sind eingearbeitet: eine Benchmark des Kartei-Chats über
+**356 protokollierte Läufe** an zwei synthetischen Akten, und die Frage, wo tomedo die
+KI-Herkunft eines Karteieintrags speichert.
+
+**Der Kartei-Chat hat zwei Betriebsarten, und bisher war nur eine beschrieben.** Alle
+bisherigen Aussagen messen den Betrieb, in dem das Modell die Akte durchsucht. Fügt man
+stattdessen ein Briefkommando in das Chat-Eingabefeld ein, löst tomedo es in einer halben
+Sekunde auf — der Prompt trägt die Daten dann selbst hinein, und es gibt keinen Abruf, der
+fehlschlagen kann. Das beseitigt die Fehlerklasse „findet nicht" vollständig. Es beseitigt
+nicht, dass der Chat nicht nachrechnet: dazu braucht es zusätzlich einen ausdrücklichen
+Prüfauftrag. Erst beide zusammen heben das Erkennen von Widersprüchen in der Akte von 0 aus
+118 auf 18 aus 20.
+
+**Zwei Aussagen waren falsch und sind widerrufen.** `karteichat-prompting` behauptete,
+PDF-Anlagen seien für den Chat nicht lesbar. Er liest sie in **54 von 65** Läufen — was er
+nicht zuverlässig tut, ist den Leser überhaupt zu starten. Und was die Anleitung als
+„korrekte Abstinenz" führte (der Chat meldet „nicht dokumentiert", obwohl der Suchbegriff in
+der Kartei vorkommt), ist gegen den Volltextexport gemessen der gefährlichste Fehlschlag des
+Bestands: Der Wert stand in der Akte, nur nicht dort, wo der Chat gesucht hat — 20 von 20 Mal,
+ohne Warnung.
+
+**Die Herkunft eines KI-Eintrags ist abfragbar.** `karteieintrag.autoquelle` trägt das
+✦-Symbol der Karteiliste, `llmcall` protokolliert jeden Modellaufruf mit Token und Kosten.
+Damit werden Testläufe per Abfrage prüfbar statt per Hinsehen. Der Schalter „✦ anzeigen" ist
+dabei **kein Filter** — er blendet nur das Symbol aus; und die Kennzeichnung verlässt die
+Kartei nicht: nicht im Eintragseditor, nicht in der Kommandoausgabe, nicht im Ausdruck.
+
+**Praxisinterna:** `karteichat-prompting` bekommt wie zuvor schon `tomedo-statistik-hql` eine
+eigene `references/praxis-interna.md`. Dort gehört die Kommando-Inventur hin — welche
+Briefkommandos in Ihrer Installation überhaupt einen Wert liefern. Das ist von Praxis zu
+Praxis verschieden und entscheidet, welche Anker Sie bauen können.
+
+| Anleitung | Version | geändert |
+|---|---|---|
+| karteichat-prompting | 1.2 | Benchmark über 356 Läufe, zweite Betriebsart, KI-Flag, zwei Widerrufe, `praxis-interna.md`, Checkliste von 19 auf 26 Punkte |
+| tomedo-statistik-hql | 1.4 | `autoquelle`, Kapitel 18 „KI- und LLM-Subsystem", Regel 4 um die Metabase-Ausnahme ergänzt, Query-Baustein 38, Datumsausreißer |
+| tomedo-llm-endpunkt | 1.2 | `llmcall` als serverseitige Telemetrie aller KI-Pfade; Kostenkontrolle wird messbar statt geschätzt |
+| tomedo-metabase-migration | 1.2 | Die Replika ist der Katalogzugang — Schemafragen gehören dorthin, nicht in den tomedo-Client |
+| übrige fünf | unverändert | — |
+
 ## 1.3 — 2026-09-19
 
 Praxisinterna sind ab jetzt eine eigene Datei je Anleitung. In `tomedo-statistik-hql`

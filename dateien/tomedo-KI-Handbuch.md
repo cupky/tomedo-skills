@@ -225,6 +225,8 @@ Werkzeug. <sup>[Teil 2 · §4]</sup>
 | Grenze | Was das für Sie heißt |
 |---|---|
 | Sucht dort, wo Ihre Wortwahl hinzeigt | Nennen Sie die Karteieintragstypen, sonst rät das Modell |
+| **„Nicht dokumentiert" ist keine Auskunft über die Akte** | Liegt der Wert in einem Anhang, meldet er ihn als fehlend — 20 von 20 Mal, ohne Warnung. Bei jedem Wert, der aus einem Fremdbrief stammen könnte, den Anhang ausdrücklich ansprechen |
+| **Er rechnet nicht gegen** | Steht in der Akte eine falsche Zahl, kommt sie unverändert zurück — in 1 von 98 Läufen fiel es auf. Aktenzahlen bleiben prüfpflichtig |
 | Zeitangaben steuern die Suche nicht zuverlässig | Lassen Sie jedes Datum mitausgeben und prüfen Sie den Zeitraum selbst |
 | Keine Vollständigkeitsgarantie | Für Zählungen und Statistiken ungeeignet |
 | Keine Bewertung, keine Diagnose | Vom Einsatzzweck nicht gedeckt — er gibt wieder, er beurteilt nicht <sup>[Teil 2 · §10]</sup> |
@@ -264,8 +266,38 @@ Werkzeug. <sup>[Teil 2 · §4]</sup>
 
 **Woran Sie merken, dass etwas nicht stimmt.** Ein Datum, das es in der Akte nicht
 gibt. Eine Diagnose, die zu gut zur Frage passt. Eine Aussage ohne Quellenangabe. Ein
-Behandlername, der nicht stimmt. Eine Antwort, die deutlich kürzer ist als sonst —
-dann wurde wahrscheinlich nur ein Teil der Akte gelesen. <sup>[Teil 2 · §14]</sup>
+Behandlername, der nicht stimmt. Eine Antwort, deren Länge von den übrigen abweicht —
+**nach oben wie nach unten**; in drei Messreihen waren die Fehlläufe die **längsten**
+Antworten. Und: eine Erfolgsmeldung des Chats ist kein Nachweis — „erfolgreich erstellt,
+einschließlich Anhang" kam zurück, die Datei war nicht in der Akte. <sup>[Teil 2 · §14]</sup>
+
+### Die zweite Betriebsart: mit Briefkommandos
+
+Alles bisher Gesagte beschreibt den Chat so, wie ihn ein Anwender bedient, der einfach tippt:
+**das Modell durchsucht die Akte.** Es geht auch anders. Fügen Sie ein Briefkommando in das
+Eingabefeld ein, ersetzt tomedo es **nach einer halben Sekunde** durch den Wert aus der Akte.
+Der Chat muss dann nichts mehr suchen — der Wert steht bereits da.
+
+**Was das repariert:** das Finden. Die Fehlerklasse „nicht dokumentiert, obwohl es dasteht"
+entfällt für alles, was strukturiert gepflegt ist.
+
+**Was das nicht repariert:** das Prüfen. Ein Rechenfehler, der in der Akte steht, blieb in
+**0 von 118** Läufen unbemerkt, obwohl alle Eckdaten im selben Prompt standen. Erst wenn Sie
+ausdrücklich dazuschreiben *„Prüfe die Angabe gegen die Datumsangaben oben. Weicht sie ab,
+benenne die Abweichung"*, markieren **18 von 20** Läufen den Widerspruch.
+
+> **Verankerung ersetzt das Suchen, nicht das Denken.** Beide Hälften sind nötig: Ohne das
+> Kommando hätte der Prüfauftrag nichts, wogegen er prüfen könnte.
+
+**Zwei Einschränkungen.** Briefkommandos lesen **keine PDF-Anhänge** — Werte aus Fremdbriefen
+erreicht nur die erste Betriebsart. Und ein Kommando ist nur so gut wie Ihre Dokumentation:
+Was bei Ihnen nicht strukturiert gepflegt ist, liefert **lautlos nichts**. Prüfen Sie jedes
+Kommando einmal einzeln, bevor Sie sich darauf verlassen.
+
+**Und der eigentliche Punkt:** `$[x THE 40 _ _ JN NJ22 NNND invTime K 0]$` tippt niemand aus
+dem Kopf, den Prüfauftrag auch nicht. Diese Betriebsart ist keine Prompt-Technik, die man
+lernt, sondern eine **Auslieferungsfrage**. **Sie bekommen fertige Bausteine — die tippt
+niemand von Ihnen aus dem Kopf.**
 
 ---
 
@@ -1549,6 +1581,10 @@ Die beiden letzten sind Anwendererfahrung, nicht Herstellerzusage.
 | Klasse | Gegenmassnahme |
 |---|---|
 | Zahlen-Konfabulation aus Mengen- und Dosisangaben | Stichprobe gegen die Quelle |
+| **Verborgene Abrufebene** — „nicht dokumentiert" heisst „nicht dort, wo ich gesucht habe" | Anhänge ausdrücklich ansprechen; jede Faktenfrage doppelt auswerten, gegen den Karteitext und gegen die ganze Akte [Referenzinstallation, 22.09.2026] |
+| **Keine Plausibilitätsprüfung** — 1 von 98 Läufen | Aktenzahlen bleiben prüfpflichtig; der Chat bestätigt sie nicht. Reparierbar nur durch Verankerung **plus** ausdrücklichen Prüfauftrag [Referenzinstallation, 22.09.2026] |
+| **Das Einschränkende verschwindet beim Verdichten** — Termine 19/20, Vorbehalte 1/25 | Vorbehalte und stehende Angebote ausdrücklich anfordern; Termine nicht [Referenzinstallation, 22.09.2026] |
+| **Quellenkürzel sind kein Beleg** | Zitatzwang setzen (37/38 zeichengenau); das Zitat mit der Gegenprobe aufschlagen [Referenzinstallation, 22.09.2026] |
 | Behandler-Attribution | nie ungeprüft übernehmen [Referenzinstallation, 08.09.2026] |
 | Selbstverifikation täuscht | Selbstauskunft ist kein Prüfergebnis |
 | **Stiller Inhaltsverlust bei Strukturabweichung** | Gliederungsachse vorgeben, Vollständigkeit separat prüfen [Referenzinstallation, 13.09.2026] |
@@ -1595,7 +1631,10 @@ die Messmethodik steht in
 | F8 | **Welche Modelle sind für den Chat wahlbar?** | **eine E-Mail** |
 | F9 | Leistet die (KI-)Zusammenfassung genug? | vor jedem Eigenbau |
 | F10 | Ersetzt der Sprechstunden-Assistent die `<audio-*`-Prompts? | offen |
-| F11 | Ist der Marker-Pfad überholt? | offen |
+| ~~F11~~ | Ist der Marker-Pfad überholt? | **beantwortet** — `karteieintrag.autoquelle` trägt das KI-Flag, `llmcall` die Telemetrie je Modellaufruf |
+| **F22** | **Sieht der Chat Formulare, Rezepte, AU-Bescheinigungen, Leistungsziffern, Laborwerte?** | **neu — nicht gemessen.** Die Testakten enthalten keine. Das ist die größte offene Lücke: „nicht dort, wo ich gesucht habe" ist bisher nur an *einer* verborgenen Ebene belegt |
+| **F23** | **Setzen KI-Prompts aus Aktionsketten das Flag `autoquelle`?** | **neu** — bleibt es leer, untererfasst jede KI-Kennzahl systematisch |
+| **F24** | **Löst ein per Chat angelegter Eintrag Aktionsketten oder Leistungen aus?** | **neu** — nicht geprüft. Schreibpfad insgesamt mit n=1 gemessen |
 | ~~F12~~ | Aktuelle Modellliste | **Methode gefunden** (422-Test) |
 | F13 | Mindest-tomedo-Version für den Endpunkt | offen |
 | F14 | PatientID/BesuchsID-Bedingung | unbelegt |
@@ -1856,12 +1895,13 @@ Nachschlagewerke — Syntaxtabellen, Fehlerkataloge, erprobte Muster.
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
 | `anker-guard-typdefinition.md` | 76 | Die drei Bausteine mit Trefferquoten aus der kontrollierten Testserie: Typdefinition drei von drei richtig, leerer Platzhalter drei von drei falsch. Enthält die Formulierungsmuster. |
-| `kommando-bibliothek.md` | 100 | Welche Briefkommandos sich als feste Vorgabe eignen, welche stille Leerwerte liefern, und die Reihenfolge: erst die Vorgabe, dann die Aufgabe. |
+| `kommando-bibliothek.md` | 107 | Welche Briefkommandos sich als feste Vorgabe eignen, welche stille Leerwerte liefern, und die Reihenfolge: erst die Vorgabe, dann die Aufgabe. |
 | `llm-textgenerator.md` | 202 | UI-Erhebung des Generators: System-Prompt im Wortlaut, Vorlagentext, Kappungswerte 14 und 30, Makro-Hinweis — plus die offene Testliste T1 bis T7. |
-| `llm-toolebene.md` | 349 | Die Werkzeugebene nach Zugriffsarten, die Grenzen des Kartei-Abrufs, der eigene Zusammenhang der Anhangsanalyse und die Reichweite des allgemeinen Datenzugriffs. |
-| `modellgrenzen-und-quellen.md` | 54 | Was das Modell nachweislich nicht leistet, und wie die Quellenverknüpfung zu lesen ist. |
+| `llm-toolebene.md` | 376 | Die Werkzeugebene nach Zugriffsarten, die Grenzen des Kartei-Abrufs, der eigene Zusammenhang der Anhangsanalyse, die Reichweite des allgemeinen Datenzugriffs — und der am 22.09.2026 verifizierte Schreibpfad. |
+| `modellgrenzen-und-quellen.md` | 130 | Was das Modell nachweislich nicht leistet, wie die Quellenverknüpfung zu lesen ist — und die gemessenen Quoten aus 356 Läufen, nach Aufgabentyp geordnet. |
 | `patterns.md` | 138 | Erprobte Muster und die Gegenbeispiele, die in Läufen gescheitert sind — überladene Frage, Verbot ohne Wortliste, feste Vorgabe ohne Vorbehaltssatz. |
-| `testprotokoll.md` | 17 | Das Minimalprotokoll: drei Läufe, Diff, Kriterien getrennt nach Form und Inhalt. |
+| `testprotokoll.md` | 82 | Das Protokoll: Sollwerte zuerst aus dem Volltextexport ziehen, **zwanzig Läufe** für alles Produktionskritische, getrennte Wertung gegen Karteitext und gegen Anlagen. |
+| `praxis-interna.md` | 93 | Die Stelle für Ihre eigene Erhebung: welche Briefkommandos in **Ihrer** Installation einen Wert liefern. Wird leer ausgeliefert. |
 
 **So fragen.**
 
