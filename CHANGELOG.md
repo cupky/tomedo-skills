@@ -3,6 +3,39 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.5 — 2026-09-22
+
+Nachtrag desselben Tages. Die Prüfung, die vor jeder Auslieferung läuft, hat einen
+Praxisbezug in `tomedo-statistik-hql` durchgelassen — die Domäne des Fragebogen-Alt-Systems
+stand in `datenmodell.md` und `query-bausteine.md` im Klartext und ist damit auch in Fassung
+1.4 ausgeliefert worden. Wer 1.4 heruntergeladen hat, kann die beiden Dateien ersetzen oder
+gleich die neue Fassung ziehen; ein Handeln ist nicht nötig, es handelt sich um eine Adresse
+der herausgebenden Praxis, nicht um Patientendaten.
+
+**Ursache war die Schreibweise.** Die Prüfregel für den Praxisnamen suchte nach
+Großbuchstaben. Die Domäne ist klein geschrieben und fiel deshalb durch. Die Regel läuft
+jetzt unabhängig von Groß- und Kleinschreibung, ebenso die Regeln für Ortsangaben,
+Personennamen und praxiseigene Typkürzel. Bei derselben Gelegenheit ist eine zweite Lücke
+derselben Regel geschlossen worden: Sie grenzte den Namen mit einer Wortgrenze ab und übersah
+deshalb `SZDD_Praxiskontext.md`, weil ein Unterstrich für den regulären Ausdruck als
+Wortzeichen zählt.
+
+Zwei Regeln bleiben bewusst auf Großschreibung beschränkt: „AGILE" und der Verdacht auf
+unbekannte Dreibuchstaben-Kürzel — klein geschrieben sind das gewöhnliche Wörter, und die
+Prüfung würde in Fehltreffern ersticken. Am geprüften Bestand erzeugen die Verschärfungen
+zusammen **keinen einzigen zusätzlichen Fehltreffer**.
+
+**Im Text steht jetzt ein Platzhalter.** `<FRAGEBOGEN-DOMAENE>` ersetzt die Adresse an allen acht
+Stellen in zwei Dateien, auch in den SQL-Beispielen. Dort ist zu beachten, dass die Domäne im Regex
+mit escapten Punkten eingesetzt wird — `fragebogen\.example\.de`. Wo der Wert einzutragen
+ist, steht in `references/praxis-interna.md` Abschnitt 1; die ausgelieferte Vorlage führt die
+Zeile jetzt mit.
+
+| Anleitung | Version | geändert |
+|---|---|---|
+| tomedo-statistik-hql | 1.5 | Domäne des Fragebogen-Alt-Systems durch `<FRAGEBOGEN-DOMAENE>` ersetzt, Auflösung in `praxis-interna.md` §1 |
+| übrige acht | unverändert | — |
+
 ## 1.4 — 2026-09-22
 
 Zwei Untersuchungen desselben Tages sind eingearbeitet: eine Benchmark des Kartei-Chats über
