@@ -225,8 +225,8 @@ Werkzeug. <sup>[Teil 2 · §4]</sup>
 | Grenze | Was das für Sie heißt |
 |---|---|
 | Sucht dort, wo Ihre Wortwahl hinzeigt | Nennen Sie die Karteieintragstypen, sonst rät das Modell |
-| **„Nicht dokumentiert" ist keine Auskunft über die Akte** | Liegt der Wert in einem Anhang, meldet er ihn als fehlend — 20 von 20 Mal, ohne Warnung. Bei jedem Wert, der aus einem Fremdbrief stammen könnte, den Anhang ausdrücklich ansprechen |
-| **Er rechnet nicht gegen** | Steht in der Akte eine falsche Zahl, kommt sie unverändert zurück — in 1 von 98 Läufen fiel es auf. Aktenzahlen bleiben prüfpflichtig |
+| **„Nicht dokumentiert" ist keine Auskunft über die Akte** | Steht der Wert nur in einem Anhang, meldet er ihn als fehlend — und sagt nicht dazu, dass er dort nicht nachgesehen hat. Bei Werten aus Fremdbriefen den Anhang ausdrücklich nennen |
+| **Er rechnet nicht gegen** | Steht in der Akte eine falsche Zahl, kommt sie unverändert zurück. Er bestätigt eine Angabe nicht — er gibt sie weiter |
 | Zeitangaben steuern die Suche nicht zuverlässig | Lassen Sie jedes Datum mitausgeben und prüfen Sie den Zeitraum selbst |
 | Keine Vollständigkeitsgarantie | Für Zählungen und Statistiken ungeeignet |
 | Keine Bewertung, keine Diagnose | Vom Einsatzzweck nicht gedeckt — er gibt wieder, er beurteilt nicht <sup>[Teil 2 · §10]</sup> |
@@ -266,38 +266,46 @@ Werkzeug. <sup>[Teil 2 · §4]</sup>
 
 **Woran Sie merken, dass etwas nicht stimmt.** Ein Datum, das es in der Akte nicht
 gibt. Eine Diagnose, die zu gut zur Frage passt. Eine Aussage ohne Quellenangabe. Ein
-Behandlername, der nicht stimmt. Eine Antwort, deren Länge von den übrigen abweicht —
-**nach oben wie nach unten**; in drei Messreihen waren die Fehlläufe die **längsten**
-Antworten. Und: eine Erfolgsmeldung des Chats ist kein Nachweis — „erfolgreich erstellt,
-einschließlich Anhang" kam zurück, die Datei war nicht in der Akte. <sup>[Teil 2 · §14]</sup>
+Behandlername, der nicht stimmt. Eine Antwort, die auffällig länger oder kürzer ausfällt
+als sonst — dann ist etwas anders gelaufen. **Auch eine ungewöhnlich lange Antwort ist ein
+Warnzeichen**, nicht nur eine kurze. Und: eine Erfolgsmeldung ist kein Nachweis.
+„Erfolgreich erstellt, einschließlich Anhang" kam zurück — die Datei war trotzdem nicht in
+der Akte. <sup>[Teil 2 · §14]</sup>
 
-### Die zweite Betriebsart: mit Briefkommandos
+### Den Wert mitgeben, statt ihn suchen zu lassen
 
-Alles bisher Gesagte beschreibt den Chat so, wie ihn ein Anwender bedient, der einfach tippt:
-**das Modell durchsucht die Akte.** Es geht auch anders. Fügen Sie ein Briefkommando in das
-Eingabefeld ein, ersetzt tomedo es **nach einer halben Sekunde** durch den Wert aus der Akte.
-Der Chat muss dann nichts mehr suchen — der Wert steht bereits da.
+Bisher ging es darum, dass der Chat Ihre Akte durchsucht. Es gibt einen zweiten Weg: Sie geben
+ihm den Wert gleich mit.
 
-**Was das repariert:** das Finden. Die Fehlerklasse „nicht dokumentiert, obwohl es dasteht"
-entfällt für alles, was strukturiert gepflegt ist.
+Dafür fügen Sie ein **Briefkommando** in das Eingabefeld ein — dasselbe `$[…]$`, das Sie aus
+Briefvorlagen kennen. tomedo ersetzt es dort nach einer halben Sekunde durch den Wert aus der
+Akte. Der Chat muss dann nicht mehr suchen. Er sieht den Wert einfach.
 
-**Was das nicht repariert:** das Prüfen. Ein Rechenfehler, der in der Akte steht, blieb in
-**0 von 118** Läufen unbemerkt, obwohl alle Eckdaten im selben Prompt standen. Erst wenn Sie
-ausdrücklich dazuschreiben *„Prüfe die Angabe gegen die Datumsangaben oben. Weicht sie ab,
-benenne die Abweichung"*, markieren **18 von 20** Läufen den Widerspruch.
+**Was Sie davon haben.** Das Ärgernis „er findet es nicht, obwohl es dasteht" verschwindet —
+für alles, was bei Ihnen ordentlich in Feldern steht.
 
-> **Verankerung ersetzt das Suchen, nicht das Denken.** Beide Hälften sind nötig: Ohne das
-> Kommando hätte der Prüfauftrag nichts, wogegen er prüfen könnte.
+**Was sich dadurch nicht ändert.** Er rechnet weiterhin nicht nach. Wir haben ihm eine Akte mit
+einem falschen Rechenergebnis vorgelegt, alle Daten sichtbar im selben Fenster: Er hat die
+falsche Zahl übernommen und nichts gemerkt.
 
-**Zwei Einschränkungen.** Briefkommandos lesen **keine PDF-Anhänge** — Werte aus Fremdbriefen
-erreicht nur die erste Betriebsart. Und ein Kommando ist nur so gut wie Ihre Dokumentation:
-Was bei Ihnen nicht strukturiert gepflegt ist, liefert **lautlos nichts**. Prüfen Sie jedes
-Kommando einmal einzeln, bevor Sie sich darauf verlassen.
+**Deshalb schreiben Sie einen Satz dazu:**
 
-**Und der eigentliche Punkt:** `$[x THE 40 _ _ JN NJ22 NNND invTime K 0]$` tippt niemand aus
-dem Kopf, den Prüfauftrag auch nicht. Diese Betriebsart ist keine Prompt-Technik, die man
-lernt, sondern eine **Auslieferungsfrage**. **Sie bekommen fertige Bausteine — die tippt
-niemand von Ihnen aus dem Kopf.**
+> Prüfe die Angabe gegen die Datumsangaben oben. Weicht sie ab, benenne die Abweichung
+> ausdrücklich und nenne beide Zahlen.
+
+Mit diesem Satz fiel der Fehler fast immer auf. Ohne ihn kein einziges Mal. Beides zusammen
+wirkt: der Wert vor Augen **und** der ausdrückliche Auftrag, ihn zu prüfen.
+
+**Zwei Dinge, die Sie wissen sollten.**
+
+- **Briefkommandos lesen keine Anhänge.** Steht der Wert nur in einem eingescannten Fremdbrief,
+  hilft nur der normale Weg — den Chat danach fragen und den Anhang ausdrücklich erwähnen.
+- **Ein Kommando liefert nur, was bei Ihnen wirklich in Feldern steht.** Was nur im Freitext
+  steht, kommt nicht — und zwar kommentarlos. Lassen Sie sich jedes Kommando einmal ausgeben,
+  bevor Sie sich darauf verlassen.
+
+**Und ganz praktisch:** Diese Kommandos tippt niemand auswendig, den Prüfsatz auch nicht. Legen
+Sie beides einmal als Textbaustein an. Danach ist es ein Klick.
 
 ---
 

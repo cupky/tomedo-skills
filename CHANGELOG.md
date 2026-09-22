@@ -31,9 +31,16 @@ mit escapten Punkten eingesetzt wird — `fragebogen\.example\.de`. Wo der Wert 
 ist, steht in `references/praxis-interna.md` Abschnitt 1; die ausgelieferte Vorlage führt die
 Zeile jetzt mit.
 
+**Das Handbuch spricht in Teil 1 jetzt Klartext.** Der Abschnitt zum Kartei-Chat war stellenweise
+für Entwickler geschrieben — „Betriebsart", „Verankerung", „Fehlerklasse", dazu eine rohe
+Kommandozeile. Teil 1 lesen aber Ärzte und Praxispersonal. Der Abschnitt sagt jetzt zuerst, was
+zu tun und zu lassen ist, und das Warum in einem Satz. Die Messzahlen bleiben in Teil 2, wo sie
+hingehören.
+
 | Anleitung | Version | geändert |
 |---|---|---|
 | tomedo-statistik-hql | 1.5 | Domäne des Fragebogen-Alt-Systems durch `<FRAGEBOGEN-DOMAENE>` ersetzt, Auflösung in `praxis-interna.md` §1 |
+| Handbuch | — | Teil 1 Kapitel 5 in Klartext neu gefasst |
 | übrige acht | unverändert | — |
 
 ## 1.4 — 2026-09-22
