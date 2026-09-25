@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Herunterladen und einrichten · tomedo-KI-Handbuch</title>
-<meta name="description" content="Die neun Anleitungen herunterladen und in Claude, Gemini oder ChatGPT einrichten.">
+<meta name="description" content="Die neun Skills herunterladen und in Claude, Gemini oder ChatGPT einrichten.">
 <style>
 :root{
   --ci-green:#89BA17; --ci-green-dark:#5c8010; --ci-green-pale:#f0f6e2;
@@ -174,7 +174,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-si
   <p class="rs-titel">Zurück ins Handbuch</p>
   <a class="rs-kachel rs-t1" href="index.html#t1"><span class="rs-label">Teil 1 · Anwenden</span><span class="rs-name">Anwenderhandbuch</span><span class="rs-was">Bedienung, Grenzen, Fehlerbilder</span></a>
   <a class="rs-kachel rs-t2" href="index.html#t2"><span class="rs-label">Teil 2 · Verstehen</span><span class="rs-name">Expertenhandbuch</span><span class="rs-was">Messungen, Belege, offene Fragen</span></a>
-  <a class="rs-kachel rs-t3" href="index.html#t3"><span class="rs-label">Teil 3 · Konfigurieren</span><span class="rs-name">Die Anleitungen</span><span class="rs-was">Katalog, Einsatz, eigene bauen</span></a>
+  <a class="rs-kachel rs-t3" href="index.html#t3"><span class="rs-label">Teil 3 · Konfigurieren</span><span class="rs-name">Die Skills</span><span class="rs-was">Katalog, Einsatz, eigene bauen</span></a>
   <a class="rs-start" href="index.html">↑ Zur Startseite</a>
 </aside>
 
@@ -190,7 +190,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-si
   <div class="dlhaupt">
     <p><strong>Alle neun auf einmal.</strong> Ein Archiv, darin die neun Einzelpakete —
     jedes davon wird später einzeln und <strong>ungeöffnet</strong> hochgeladen.</p>
-    <a class="knopf" href="dateien/tomedo-ki-skills-alle.zip" data-datei="tomedo-ki-skills-alle.zip" download>Alle neun herunterladen <span class="gr">· ZIP, 426 KB</span></a>
+    <a class="knopf" href="dateien/tomedo-ki-skills-alle.zip" data-datei="tomedo-ki-skills-alle.zip" download>Alle neun herunterladen <span class="gr">· ZIP, 432 KB</span></a>
     <p class="neben"><a href="#einzeln">Lieber einzeln auswählen</a><a href="#claude">Direkt zur Einrichtung</a></p>
   </div>
 </div>
@@ -200,11 +200,12 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-si
 
   <div class="weg weg-claude">
     <h3>Claude</h3>
-    <p class="wer">Hier sind die Anleitungen gebaut und getestet. Drei Schritte, keine fünf Minuten.</p>
+    <p class="wer">Hier sind die Skills gebaut und getestet. Drei Schritte, keine fünf Minuten.</p>
     <ol class="schritte">
       <li><b>Code-Ausführung einschalten</b>Einstellungen → <em>Capabilities</em> → „Code execution and file creation" aktivieren. Ohne diesen Schalter ist der Skills-Bereich ausgegraut — daran scheitern die meisten ersten Versuche.</li>
-      <li><b>ZIP hochladen</b><em>Customize</em> → <em>Skills</em> → Schaltfläche „+" → Datei auswählen, nicht auspacken. Claude fasst danach in einem Satz zusammen, wofür es die Anleitung hält; das ist die Probe darauf, ob sie später greift. Dann den Schalter umlegen — hochgeladen ist noch nicht eingeschaltet.</li>
-      <li><b>Einfach fragen</b>Die Anleitung wird nicht aufgerufen, sondern erkannt: „Wie lese ich im Arztbrief den Wert aus einem Patientenformular aus?" genügt. Laden Sie ruhig alle neun hoch — Claude liest zunächst nur die Kurzbeschreibungen.</li>
+      <li><b>ZIP hochladen</b><em>Customize</em> → <em>Skills</em> → Schaltfläche „+" → Datei auswählen, nicht auspacken. Claude fasst danach in einem Satz zusammen, wofür es den Skill hält; das ist die Probe darauf, ob er später greift. Dann den Schalter umlegen — hochgeladen ist noch nicht eingeschaltet.</li>
+      <li><b>Einfach fragen</b>Der Skill wird nicht aufgerufen, sondern erkannt: „Wie lese ich im Arztbrief den Wert aus einem Patientenformular aus?" genügt. Laden Sie ruhig alle neun hoch — Claude liest zunächst nur die Kurzbeschreibungen.</li>
+      <li><b>Später: neue Fassung einspielen</b>Einfach das neue ZIP hochladen. Claude ersetzt den vorhandenen Skill gleichen Namens und führt die Fassungen, vorher löschen ist nicht nötig. Nur ein umbenannter Skill bleibt unter dem alten Namen liegen und muss von Hand entfernt werden. Wer eine <code>praxis-interna.md</code> ausgefüllt hat, legt sie vor dem Hochladen in das neue ZIP.</li>
     </ol>
   </div>
 
@@ -221,7 +222,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;font-si
   </div>
 </div>
 
-<h3>Prompt A · Umbau — einmal je Anleitung</h3>
+<h3>Prompt A · Umbau — einmal je Skill</h3>
 <div class="prompt">
   <header><span>In den Chat kopieren, nachdem die Dateien hochgeladen sind</span><button class="kopieren" data-ziel="pA" type="button">Kopieren</button></header>
 <pre id="pA">Zielplattform: [Gemini Gem] ODER [ChatGPT Custom GPT] — Zutreffendes stehen lassen.
@@ -254,7 +255,7 @@ Aufgaben
 5. Übernimm Status- und Belegvermerke wortgleich, etwa
    [Referenzinstallation, TT.MM.JJJJ], [plausibel], [zu evaluieren]. Sie
    unterscheiden Gemessenes von Abgeleitetem; ohne sie wird jede Aussage gleich
-   stark und die Anleitung unbrauchbar.
+   stark und der Skill unbrauchbar.
 6. Sprache: Deutsch, Sie-Form, kein Gendern, sachlich.
 
 Ausgabe in vier Blöcken
@@ -289,17 +290,17 @@ Alles auf einmal geht regelmäßig schief.</p>
   Einrichten mit der Prüfliste aus Block D — drei Fragen, fünf Minuten.</p>
 </div>
 
-<h2 id="einzeln">Die neun Anleitungen einzeln</h2>
-<p>Jede Anleitung greift eigenständig; man muss nicht alle nehmen. Wer nur Briefe baut,
+<h2 id="einzeln">Die neun Skills einzeln</h2>
+<p>Jeder Skill greift eigenständig; man muss nicht alle nehmen. Wer nur Briefe baut,
 kommt mit zweien aus.</p>
 <div class="dl-liste">
-<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Kartei-Chat-Prompts</span><span class="dl-wofuer">Fragen an den Kartei-Chat bauen, die nicht abrutschen: Anker, Vorbehaltssatz, Typdefinition, Fehlerkatalog, Testprotokoll.</span></span><span class="dl-lad"><a href="dateien/karteichat-prompting.zip" data-datei="karteichat-prompting.zip" download>Herunterladen</a><span class="gr">ZIP, 55 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Kartei-Chat-Prompts</span><span class="dl-wofuer">Fragen an den Kartei-Chat bauen, die nicht abrutschen: Anker, Vorbehaltssatz, Typdefinition, Fehlerkatalog, Testprotokoll.</span></span><span class="dl-lad"><a href="dateien/tomedo-karteichat-prompting.zip" data-datei="tomedo-karteichat-prompting.zip" download>Herunterladen</a><span class="gr">ZIP, 55 KB</span></span></div>
 <div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Briefkommandos</span><span class="dl-wofuer">Rund 580 Kommandos und 14 Konfiguratoren als Nachschlagewerk — Platzhalter, Bedingungen, Tabellen, Labor- und Formularwerte.</span></span><span class="dl-lad"><a href="dateien/tomedo-kommandos.zip" data-datei="tomedo-kommandos.zip" download>Herunterladen</a><span class="gr">ZIP, 55 KB</span></span></div>
 <div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Aktionsketten</span><span class="dl-wofuer">Auslöser, Bedingungen, Fragen und der vollständige Aktionstypen-Katalog — samt der Aktion „KI-Prompt".</span></span><span class="dl-lad"><a href="dateien/tomedo-aktionsketten.zip" data-datei="tomedo-aktionsketten.zip" download>Herunterladen</a><span class="gr">ZIP, 26 KB</span></span></div>
 <div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Textbausteine</span><span class="dl-wofuer">Bausteine mit Frage-Antwort-Dialogen: Mehrfachauswahl, Trennzeichen, Standardtexte, Aktionsketten aus einer Antwort heraus.</span></span><span class="dl-lad"><a href="dateien/tomedo-textbausteine.zip" data-datei="tomedo-textbausteine.zip" download>Herunterladen</a><span class="gr">ZIP, 11 KB</span></span></div>
 <div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Patientenformulare</span><span class="dl-wofuer">Formulare für arzt-direkt vorbereiten und überarbeiten: Feldtypen, Stammdaten-Anbindung, Score-Felder, Prüfregeln vor dem Ausspielen.</span></span><span class="dl-lad"><a href="dateien/tomedo-patientenformulare.zip" data-datei="tomedo-patientenformulare.zip" download>Herunterladen</a><span class="gr">ZIP, 41 KB</span></span></div>
 <div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Statistik und HQL</span><span class="dl-wofuer">Das Datenmodell, validierte JOIN-Pfade, Query-Bausteine und 46 dokumentierte Fehlerquellen. Das umfangreichste Paket.</span></span><span class="dl-lad"><a href="dateien/tomedo-statistik-hql.zip" data-datei="tomedo-statistik-hql.zip" download>Herunterladen</a><span class="gr">ZIP, 184 KB</span></span></div>
-<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Metabase</span><span class="dl-wofuer">Abfragen ins Dashboard übersetzen und aus dem Dashboard zurück in die Kartei springen.</span></span><span class="dl-lad"><a href="dateien/tomedo-metabase-migration.zip" data-datei="tomedo-metabase-migration.zip" download>Herunterladen</a><span class="gr">ZIP, 20 KB</span></span></div>
+<div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Metabase</span><span class="dl-wofuer">Abfragen ins Dashboard übersetzen und aus dem Dashboard zurück in die Kartei springen.</span></span><span class="dl-lad"><a href="dateien/tomedo-metabase-migration.zip" data-datei="tomedo-metabase-migration.zip" download>Herunterladen</a><span class="gr">ZIP, 25 KB</span></span></div>
 <div class="dl-zeile"><span class="dl-txt"><span class="dl-name">Navigation</span><span class="dl-wofuer">Damit die KI die Menüs kennt: Pflegeorte, Klickstrecken, Einstellungen gegenüber Admin-Bereich, Skript-Anbindung.</span></span><span class="dl-lad"><a href="dateien/tomedo-navigation.zip" data-datei="tomedo-navigation.zip" download>Herunterladen</a><span class="gr">ZIP, 22 KB</span></span></div>
 <div class="dl-zeile"><span class="dl-txt"><span class="dl-name">LLM-Service-Endpunkt <span class="dl-nur-it">— nur für die Praxis-IT</span></span><span class="dl-wofuer">Direkte Aufrufe an den tomedo-Server, Modellwahl, Kosten und Fehlerdiagnose. Bewusst als Zusatz, nicht für den Alltag.</span></span><span class="dl-lad"><a href="dateien/tomedo-llm-endpunkt.zip" data-datei="tomedo-llm-endpunkt.zip" download>Herunterladen</a><span class="gr">ZIP, 18 KB</span></span></div>
 </div>
@@ -313,13 +314,13 @@ Weiterverarbeiten in eigenen Unterlagen.</p>
 </div>
 
 <div class="rueckweg">
-  <p><strong>Fertig heruntergeladen?</strong> Was in den einzelnen Anleitungen steckt,
+  <p><strong>Fertig heruntergeladen?</strong> Was in den einzelnen Skills steckt,
   wann sie greifen und woran man ein falsches Ergebnis erkennt, steht im Handbuch.</p>
   <a class="zurueckknopf" href="index.html#t3">← Zurück zum Skill-Handbuch</a>
 </div>
 
 <footer>
-  <p>Kürzel für Karteieintragstypen sind je Praxis verschieden und stehen in den Anleitungen
+  <p>Kürzel für Karteieintragstypen sind je Praxis verschieden und stehen in den Skills
   als Platzhalter — wo einer auftaucht, gehört Ihr eigenes Kürzel hinein; wie Sie es finden,
   steht jeweils daneben. Alles Erzeugte gehört ins Testsystem, bevor es produktiv geht.</p>
   <p>Kein Anspruch auf Vollständigkeit oder Richtigkeit. Keine medizinische, rechtliche oder

@@ -944,7 +944,7 @@ Acht Bloecke, einer je Werkzeug plus ein uebergreifender.
 - Einen Prompt in der KI-Assistenten-Verwaltung löschen, wenn der Textbaustein bleiben soll — er wird mitgelöscht.
 - Die Behandler-Attribution ungeprüft übernehmen.
 
-*Belege: karteichat-prompting, §14, §2, §4*
+*Belege: tomedo-karteichat-prompting, §14, §2, §4*
 
 ### Sprechstunden-Assistent
 
@@ -1331,7 +1331,7 @@ Für Mehrjahres-Verdichtung bleiben zwei offene Punkte: die Mengenkappung (T1)
 und die Zweckbestimmung (§10).
 
 Details und die vollständige Testliste T1–T7:
-`karteichat-prompting/references/llm-textgenerator.md`.
+`tomedo-karteichat-prompting/references/llm-textgenerator.md`.
 
 ---
 
@@ -1623,7 +1623,7 @@ Kriterien es erfasst hätten. [Referenzinstallation, 13.09.2026]
 > 2. **Vollständigkeit ist ein eigenes Prüfkriterium**, getrennt von der
 >    Frage, ob das Ergebnis richtig ist.
 
-Beides ist in `karteichat-prompting` als benannte Modellgrenze aufgenommen;
+Beides ist in `tomedo-karteichat-prompting` als benannte Modellgrenze aufgenommen;
 die Messmethodik steht in
 `tomedo-llm-endpunkt/references/betrieb-und-messung.md`.
 
@@ -1678,7 +1678,7 @@ die Messmethodik steht in
 | **CKE-Automatisierung** | Testreihe G1–G6 fahren, bevor etwas gebaut wird |
 | **Benchmark-Methodik** | Prüfraster um **Vollständigkeit** erweitern; **mindestens 15 Läufe je Arm**, Streuungsmasse mitberichten, Blindbewertung mit getrenntem Zuordnungsschlüssel; **jede kostenverursachende Messung mit hartem Kostendeckel und getestetem Abbruchweg** |
 | **Kostenrechnung** | Überall, wo `cost` als Verbrauchsmass diente, auf die Denk-Token-Rechnung umstellen |
-| **Skills** | **`tomedo-llm-endpunkt`** ist der zuständige Träger für §8, Teil 4 und die Messmethodik — Navigator plus fünf Referenzdateien. Dazu vier Updates: `tomedo-navigation` (AppleScript-Rezeptbuch, Format-Menü), `karteichat-prompting` (Werkzeugebene, Textgenerator, stiller Inhaltsverlust, G1–G6), `tomedo-aktionsketten` (KI-Prompt-Aktion), `tomedo-textbausteine` (Chat-Prompt-Regeln) |
+| **Skills** | **`tomedo-llm-endpunkt`** ist der zuständige Träger für §8, Teil 4 und die Messmethodik — Navigator plus fünf Referenzdateien. Dazu vier Updates: `tomedo-navigation` (AppleScript-Rezeptbuch, Format-Menü), `tomedo-karteichat-prompting` (Werkzeugebene, Textgenerator, stiller Inhaltsverlust, G1–G6), `tomedo-aktionsketten` (KI-Prompt-Aktion), `tomedo-textbausteine` (Chat-Prompt-Regeln) |
 
 ---
 
@@ -1720,20 +1720,20 @@ Alle Messungen liefen gegen tomedo v1.170.0.16 (Client) / v1.170-s1356 (Server).
 
 | ID | Erhebung | Stand | Umfang und Befund | Ablage | Kapitel |
 |---|---|---|---|---|---|
-| Q-M1 | Tool-Export der eigenen Installation | 13.09.2026 | Struktur der Werkzeugebene: Lese-, Schreib-, Bedien- und allgemeiner Datenzugriff; Datumsgrenze statt Inhaltsfilter beim Kartei-Abruf; eigener Zusammenhang der Anhangsanalyse | `_CHANGELOG_LLM-Werkzeugebene_2026-09-10.md`, `LLM-Werkzeugebene-und-Skill-Freigabe.md`, `karteichat-prompting/references/llm-toolebene.md` | 2 |
+| Q-M1 | Tool-Export der eigenen Installation | 13.09.2026 | Struktur der Werkzeugebene: Lese-, Schreib-, Bedien- und allgemeiner Datenzugriff; Datumsgrenze statt Inhaltsfilter beim Kartei-Abruf; eigener Zusammenhang der Anhangsanalyse | `_CHANGELOG_LLM-Werkzeugebene_2026-09-10.md`, `LLM-Werkzeugebene-und-Skill-Freigabe.md`, `tomedo-karteichat-prompting/references/llm-toolebene.md` | 2 |
 | Q-M2 | A/B-Messreihe am LLM-Endpunkt | 13.09.2026 | 2 Modelle × 20 Läufe, identischer Fachprompt; 40 maschinell auf Form geprüft, davon 10 verblindet fachlich bewertet (5 je Arm); Latenz, Streuung, Formattreue, Kosten | `Skill-Qualitaetsgate-LLM-Endpunkt.md`, `tomedo-llm-endpunkt/references/modellwahl.md` und `betrieb-und-messung.md` | 14, Teil 4 |
 | Q-M3 | Parameter- und Routensondierung am Endpunkt | 13.09.2026 | Positivliste der akzeptierten Parameter, wirkungslose Parameter, HTTP-400-Kandidaten; neun geprüfte Routen, alle außer chat/completions mit HTTP 404 | `tomedo-llm-endpunkt/references/aufruf-und-parameter.md` und `fehlerdiagnose.md` | Teil 4 |
 | Q-M4 | Lasttest Kostenlimit | 13.09.2026 | 74 Aufrufe an einem frischen Testnutzer, beendet vom eigenen Kostendeckel; reale 5-$-Marke bei Aufruf 36, danach 38 weitere Aufrufe fehlerfrei; 1 008 495 Denk-Tokens folgenlos | `tomedo-llm-endpunkt/references/kosten-und-budget.md` | Teil 4 |
 | Q-M5 | launchd-Erreichbarkeitstest | 13.09.2026 | Aufruf aus einem LaunchAgent ohne Terminal, Aqua-Domäne, HTTP 200 in 0,82 s; Systemdomäne ungetestet (F21) | `tomedo-navigation/references/applescript-rezeptbuch.md` | 15, Teil 4 |
-| Q-M6 | UI-Erhebung LLM-Textgenerator | 13.09.2026 | Zwei Bildschirmfotos des Fensters; System-Prompt mit sieben Regeln, Vorlagentext mit den Kappungswerten 14 und 30, Makro-Hinweis, Schaltflächen | `karteichat-prompting/references/llm-textgenerator.md` (Testliste T1–T7) | 3 |
-| Q-M7 | Kontrollierte KarteiChat-Testserie | 08.09.2026 | Synthetische Demoakte mit 108 Karteieinträgen, 8 Prompt-Varianten, je 3–4 Läufe, rund 40 protokollierte Antworten; Fehlerkatalog Anker/Vorbehaltssatz/Typdefinition | `KarteiChat-Benchmark-Wiederholung.md`, `KarteiChat-P1-Auswertung_Akte1_2026-09-01.md`, `karteichat-prompting/references/anker-guard-typdefinition.md` | 2, 4, 14 |
+| Q-M6 | UI-Erhebung LLM-Textgenerator | 13.09.2026 | Zwei Bildschirmfotos des Fensters; System-Prompt mit sieben Regeln, Vorlagentext mit den Kappungswerten 14 und 30, Makro-Hinweis, Schaltflächen | `tomedo-karteichat-prompting/references/llm-textgenerator.md` (Testliste T1–T7) | 3 |
+| Q-M7 | Kontrollierte KarteiChat-Testserie | 08.09.2026 | Synthetische Demoakte mit 108 Karteieinträgen, 8 Prompt-Varianten, je 3–4 Läufe, rund 40 protokollierte Antworten; Fehlerkatalog Anker/Vorbehaltssatz/Typdefinition | `KarteiChat-Benchmark-Wiederholung.md`, `KarteiChat-P1-Auswertung_Akte1_2026-09-01.md`, `tomedo-karteichat-prompting/references/anker-guard-typdefinition.md` | 2, 4, 14 |
 | Q-M8 | Arztbrief-Korpus und Reproduzierbarkeitsreihe | 08/2026 | Exportkorpora v25 und v26 in Voll-, 4-Quartals- und 8-Quartals-Schnitt; neun Läufe zur Reproduzierbarkeit; Grundlage des Vergleichs mit dem Textgenerator | `arztbrief_export_korpus_v26_1*.txt`, `claude_arztbrief_reproduzierbarkeit_rohdaten_9_laeufe.md` | 3, 16 |
 | Q-M9 | Summenbilanz aller Endpunkt-Aufrufe | 13.09.2026 | 164 ausgeführte Aufrufe, davon 116 vollständig als Datei gesichert und nachlieferbar; sämtlich gegen tomedo v1.170.0.16 | Rohdaten liegen praxisintern, nicht im Project Knowledge | 9, Teil 4 |
 | Q-M10 | Sondenreihe Textbaustein-Dialoge (Sonde C) | 15.09.2026 | 14 Prüfzeilen in einem Wegwerf-Baustein, ein Durchlauf plus Einzelnachtests; Optionskatalog belegt, `<zsUserText>`-Semantik invers zur bisherigen Annahme, Keyword `REUSEANSWER` gefunden, `TRIMANSWER` und `SKIPDIALOGIFEXACTLYONEANSWER` ohne Wirkung, Formatierung überlebt nur an Antwortoptionen | `tomedo-textbausteine/SKILL.md` | 4 |
 
-### A.4 · Anleitungen als Belegträger
+### A.4 · Skills als Belegträger
 
-Die Anleitungen aus Teil 3 sind keine eigenständige Quelle, sondern die geordnete
+Die Skills aus Teil 3 sind keine eigenständige Quelle, sondern die geordnete
 Fassung der Messungen aus A.3.
 
 > Aussagen mit dem Status *plausibel* sind abgeleitet und tragen bewusst keine Quelle.
@@ -1745,11 +1745,16 @@ Fassung der Messungen aus A.3.
 
 # Teil 3 · Konfigurieren
 
-**Worum es hier geht.** Um neun vorbereitete Arbeitsanleitungen, mit denen eine KI
+**Worum es hier geht.** Um neun vorbereitete Skills, mit denen eine KI
 außerhalb von tomedo bei der Konfiguration hilft: Briefvorlage bauen, Aktionskette
 entwerfen, Formular vorbereiten, Auswertung aufsetzen, Prompt für den Kartei-Chat
-schreiben. Diese Anleitungen sind der Grund, aus dem es diese Sammlung gibt. Teil 1
+schreiben. Diese Skills sind der Grund, aus dem es diese Sammlung gibt. Teil 1
 und Teil 2 sind der Unterbau für alle, die neu mit der KI in tomedo arbeiten.
+
+**Was ein Skill ist.** Eine Anleitung für die KI, die sie bei passender Frage selbst
+heranzieht. „Anleitung" allein greift zu kurz: Ein Skill gibt der KI eine Fähigkeit, die sie
+vorher nicht hatte, samt Regeln, Nachschlagewerk und bekannten Fehlern. Deshalb steht hier
+durchgehend der Begriff der Anbieter: Skill.
 
 **Für wen.** Für alle, die über die Bedienung hinausgehen wollen. Programmierkenntnisse
 sind nicht nötig, Bereitschaft zum Testen schon.
@@ -1804,8 +1809,7 @@ Eigenschaften unterscheiden sich.
 | Weitergabe | als Datei oder über die Organisation | über einen Link | über einen Link oder öffentlich |
 | Eignung für Nachschlagewerke | sehr gut, auch bei großem Umfang | begrenzt | begrenzt |
 
-**Was das praktisch heißt.** Die hier beschriebenen Anleitungen sind für den
-Skill-Mechanismus gebaut: ein kurzer Steuerteil, der entscheidet, welche Begleitdatei
+**Was das praktisch heißt.** Die hier beschriebenen Skills sind für Claude gebaut: ein kurzer Steuerteil, der entscheidet, welche Begleitdatei
 gebraucht wird, und daneben die eigentlichen Nachschlagewerke. Ein Nachschlagewerk mit
 mehreren tausend Zeilen ist als Gem oder Custom GPT nur eingeschränkt nutzbar — es passt
 entweder nicht hinein oder wird nicht zuverlässig gelesen.
@@ -1838,6 +1842,13 @@ ersetzt den Test nicht.
 
 1. **Skill einbinden.** Als Datei hochladen oder über die Organisation bereitstellen
    lassen. Danach ist er in jedem Gespräch verfügbar.
+
+   **Neue Fassung?** Einfach das neue ZIP hochladen. Claude ersetzt den vorhandenen Skill
+   gleichen Namens und führt die Fassungen, vorher löschen ist nicht nötig. Zwei Ausnahmen:
+   Hat ein Skill einen neuen Namen bekommen, bleibt der alte liegen und muss von Hand
+   entfernt werden. Und wer eine `praxis-interna.md` ausgefüllt hat, legt die eigene Datei vor
+   dem Hochladen in das neue ZIP, sonst ist sie durch die leere Vorlage ersetzt.
+
 2. **Aufgabe beschreiben, nicht Lösung bestellen.** „Ich brauche im Arztbrief den Wert
    aus Feld X" führt weiter als „schreib mir ein Briefkommando".
 3. **Gegenfragen zulassen.** Die Skills sind so angelegt, dass sie bei unklarer Vorgabe
@@ -1885,16 +1896,15 @@ zwischen zwei Ständen geändert hat.
 
 ## 6 · Der Katalog
 
-Neun Anleitungen, entlang der Aufgaben, die in einer Praxis tatsächlich anfallen. Jede
-nennt: wofür sie gedacht ist, woran sie sich orientiert, wofür sie **nicht** gedacht ist,
-und wie eine gute Frage an sie aussieht.
+Neun Skills, entlang der Aufgaben, die in einer Praxis tatsächlich anfallen. Jeder nennt: wofür er gedacht ist, woran er sich orientiert, wofür er **nicht** gedacht ist,
+und wie eine gute Frage an ihn aussieht.
 
-**Aufbau.** Jede Anleitung besteht aus einem Steuerteil und, wo nötig, aus
+**Aufbau.** Jeder Skill besteht aus einem Steuerteil und, wo nötig, aus
 Begleitdateien. Der Steuerteil ist kurz und entscheidet, welche Begleitdatei für die
 gestellte Frage gebraucht wird. Die Begleitdateien sind die eigentlichen
 Nachschlagewerke — Syntaxtabellen, Fehlerkataloge, erprobte Muster.
 
-### `karteichat-prompting`
+### `tomedo-karteichat-prompting`
 
 *Organisationsweit · baut auf: Teil 1 · Abschnitt 5 und 10 · Teil 2 · §2 und §4*
 
@@ -1963,7 +1973,7 @@ Was dann passiert: Der Skill liefert `$[formularEintrag PatF-psf-Erstanamnese sc
 
 **Wofür.** Aktionsketten, Auslöser, Bedingungen und Fragen konfigurieren — einschließlich der Aktion „KI-Prompt" und der Ergebnisweitergabe an Folgeschritte.
 
-**Nicht dafür.** Nicht für die Formulierung des KI-Prompts selbst — dafür `karteichat-prompting`. Dieser Skill baut die Kette darum herum.
+**Nicht dafür.** Nicht für die Formulierung des KI-Prompts selbst — dafür `tomedo-karteichat-prompting`. Dieser Skill baut die Kette darum herum.
 
 **Greift bei Stichworten wie:** Kette bauen · Auslöser konfigurieren · blockierend gegen nicht-blockierend · Duplikatschutz · Zurückschreiben · Debugging über Loglevel-Feinschaltung
 
@@ -2104,7 +2114,7 @@ Was dann passiert: Der Skill liefert die Query samt validiertem JOIN-Pfad und ZS
 | `deep-linking.md` | 273 | Absprung in beide Richtungen, `tomedo://patient`. |
 | `visualization-settings.md` | 160 | Templates und Semantik der Darstellungseinstellungen. |
 | `dashboard-layout.md` | 91 | Layout, Filter-Widgets, URL-Parameter. |
-| `import-scripts.md` | 109 | Card- und Settings-Automatisierung über die Metabase-API. |
+| `import-scripts.md` | 165 | Card- und Settings-Automatisierung über die Metabase-API. |
 
 **So fragen.**
 
@@ -2192,31 +2202,28 @@ Was dann passiert: Der Skill erkennt das Muster sofort: `max_tokens` begrenzt be
 
 ---
 
-## 7 · Eine eigene Anleitung bauen
+## 7 · Einen eigenen Skill bauen
 
 Sie brauchen keine Programmierkenntnisse. Sie brauchen eine Aufgabe, die sich
 wiederholt, und die Bereitschaft, einmal aufzuschreiben, was Sie dabei jedes Mal neu
 erklären.
 
-1. **Aufgabe abgrenzen.** Eine Anleitung, die alles kann, greift nirgends zuverlässig.
+1. **Aufgabe abgrenzen.** Ein Skill, der alles kann, greift nirgends zuverlässig.
    Je enger, desto besser.
 2. **Auslöserworte sammeln.** Mit welchen Worten beschreiben Sie und Ihre Kollegen diese
-   Aufgabe? Genau die gehören in die Beschreibung, sonst wird die Anleitung nicht
-   gefunden.
-3. **Abgrenzung mitschreiben.** Wofür die Anleitung *nicht* gedacht ist, und welche
+   Aufgabe? Genau die gehören in die Beschreibung, sonst wird der Skill nicht gefunden.
+3. **Abgrenzung mitschreiben.** Wofür der Skill *nicht* gedacht ist, und welcher
    andere stattdessen greift. Das verhindert die häufigste Fehlfunktion.
 4. **Belege sammeln, nicht Meinungen.** Was Sie selbst geprüft haben, mit Datum. Was Sie
    vermuten, ausdrücklich als Vermutung.
-5. **Fehler aufschreiben, die Sie gemacht haben.** Das ist der wertvollste Teil. Eine
-   Anleitung, die zehn bekannte Sackgassen benennt, spart mehr Zeit als eine, die zehn
+5. **Fehler aufschreiben, die Sie gemacht haben.** Das ist der wertvollste Teil. Ein Skill, der zehn bekannte Sackgassen benennt, spart mehr Zeit als einer, der zehn
    Funktionen erklärt.
-6. **An einem echten Fall testen.** Nicht an dem, für den Sie sie geschrieben haben,
+6. **An einem echten Fall testen.** Nicht an dem, für den Sie ihn geschrieben haben,
    sondern am nächsten.
 
-**Zwei Fallstricke.** Beispiele, die Sie in die Anleitung schreiben, tauchen in den
+**Zwei Fallstricke.** Beispiele, die Sie in den Skill schreiben, tauchen in den
 Ergebnissen wieder auf — auch dann, wenn Sie das ausdrücklich verbieten. Verwenden Sie
-deshalb nur Beispielinhalte, die im Ergebnis stehen dürfen. Und: Eine Anleitung ohne
-Abgrenzung greift auch bei Fragen, für die sie nicht gemacht ist, und antwortet dann
+deshalb nur Beispielinhalte, die im Ergebnis stehen dürfen. Und: Ein Skill ohne Abgrenzung greift auch bei Fragen, für die er nicht gemacht ist, und antwortet dann
 falsch statt gar nicht.
 
 ---
@@ -2226,11 +2233,11 @@ falsch statt gar nicht.
 | Grenze | Was das für Sie heißt |
 |---|---|
 | Kein Zugriff auf Ihre Installation | Alles, was geliefert wird, ist ein Entwurf und muss getestet werden |
-| Stand der Anleitung ist der Stand der Prüfung | Mit einem tomedo-Update kann eine Angabe veralten |
+| Stand des Skills ist der Stand der Prüfung | Mit einem tomedo-Update kann eine Angabe veralten |
 | Keine Patientendaten | Aufgaben beschreiben, nicht Fälle schildern |
 | Belegt ist nicht dasselbe wie allgemeingültig | Die Angaben stammen aus einer Referenzinstallation; andere Konfigurationen können abweichen |
 | Kein Ersatz für die Onlinehilfe | Was eine Funktion tut, steht beim Hersteller — hier steht, wie man sie benutzt |
-| Anleitungen ersetzen keine Abstimmung | Wer eine Vorlage ändert, ändert sie für alle |
+| Skills ersetzen keine Abstimmung | Wer eine Vorlage ändert, ändert sie für alle |
 
 ---
 
@@ -2239,7 +2246,7 @@ falsch statt gar nicht.
 Diese Sammlung ist aus der Arbeit in einer Praxis entstanden und lebt davon, dass
 Abweichungen gemeldet werden. Nützlich sind vor allem drei Dinge: eine Angabe, die in
 Ihrer Installation anders ist; eine Sackgasse, die noch nicht dokumentiert ist; und ein
-Anwendungsfall, für den bisher keine Anleitung existiert.
+Anwendungsfall, für den es bisher keinen Skill gibt.
 
 Und ausdrücklich: **Der Hersteller darf alles hiervon übernehmen** — ganz, in Teilen,
 umgeschrieben. Was hier steht, ist der Versuch eines Anwenders, das Vorhandene besser

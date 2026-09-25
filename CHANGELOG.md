@@ -3,6 +3,46 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.8 — 2026-09-23
+
+**Die Metabase-Anleitung bringt ihr Import-Skript jetzt selbst mit.** Bisher verwies sie auf ein
+Skript, das nicht beilag; jedes Paket musste seinen Import neu erfinden, und jede Neufassung war
+ungetestet. Jetzt liegt ein fertiges Skript im Skill, das Sammlung, Fragen und Dashboard samt
+Texten und Layout anlegt und nach dem Import die Ergebnisse gegen Prüfwerte aus dem
+tomedo-Export abgleicht. Getestet gegen Metabase v0.63.3: sieben Fragen und 13 Kacheln, alle
+vier Prüfwerte gleich, ein zweiter Lauf aktualisiert statt zu verdoppeln.
+
+**Neu ist `--ersetzen`.** Das Skript erkennt Vorhandenes am Namen. Wurde eine Frage zwischen zwei
+Paketen umbenannt, stand die alte bisher weiter neben der neuen. Mit `--ersetzen` wandert
+alles aus der Sammlung, was nicht mehr in der Konfiguration steht, in den Papierkorb von
+Metabase — wiederherstellbar. Endgültig löscht erst, wer den Papierkorb leert.
+
+Außerdem beschrieben: das Format der `dashboard.json` und welche Rechte der API-Schlüssel
+braucht. Ein Schlüssel, der nur Ergebnisse lesen darf, reicht für den Import nicht.
+
+**Alle neun Anleitungen beginnen jetzt mit `tomedo-`.** Die Anleitung für den Kartei-Chat hieß
+bisher als einzige nur `karteichat-prompting`; sie heißt jetzt `tomedo-karteichat-prompting`.
+Am Inhalt ändert das nichts. **Wer die alte Fassung installiert hat, entfernt sie**, bevor er die
+neue einspielt — sonst liegen zwei Anleitungen mit denselben Auslösern nebeneinander, und es ist
+Zufall, welche die KI liest.
+
+**Eine neue Fassung einspielen heißt: einfach hochladen.** Claude ersetzt den Skill gleichen
+Namens und führt die Fassungen; vorher löschen ist nicht nötig. Das steht jetzt im Handbuch
+und auf der Downloadseite, zusammen mit den zwei Ausnahmen: ein umbenannter Skill, und eine
+selbst ausgefüllte `praxis-interna.md`, die vor dem Hochladen ins neue ZIP gehört.
+
+**Im Handbuch heißt es jetzt durchgehend Skill statt Anleitung.** Teil 3 erklärt den Begriff
+einmal: Ein Skill gibt der KI eine Fähigkeit samt Regeln und Nachschlagewerk, nicht nur eine
+Gebrauchsanweisung.
+
+| Anleitung | Version | geändert |
+|---|---|---|
+| tomedo-metabase-migration | 1.3 | Import-Skript im Skill, `--ersetzen`, Format der `dashboard.json`, Schlüsselrechte, getestet gegen v0.63.3 |
+| tomedo-karteichat-prompting | 1.4 | umbenannt, vorher `karteichat-prompting`; Inhalt unverändert |
+| Handbuch | — | Begriff Skill statt Anleitung, Hinweis zum Einspielen neuer Fassungen, Verweise auf den neuen Namen |
+| fünf weitere Skills | unverändert | Verweise auf den neuen Namen nachgezogen |
+| übrige zwei | unverändert | — |
+
 ## 1.7 — 2026-09-22
 
 Die Kommando-Inventur des Kartei-Chats wurde ein zweites Mal gefahren — einmal vor und einmal
