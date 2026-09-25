@@ -43,6 +43,11 @@ Gebrauchsanweisung.
 | fünf weitere Skills | unverändert | Verweise auf den neuen Namen nachgezogen |
 | übrige zwei | unverändert | — |
 
+**Nachtrag, 25.09.:** Die leere Vorlage der `praxis-interna.md` in `tomedo-statistik-hql` und
+`tomedo-karteichat-prompting` sagte noch, eine neue Fassung überschreibe die eigene Erhebung
+nicht, solange man die Datei stehen lasse. Das stimmt nicht: Beim Hochladen wird der ganze Skill
+ersetzt. Die Vorlage sagt jetzt, dass die eigene Fassung vor dem Hochladen ins neue ZIP gehört.
+
 ## 1.7 — 2026-09-22
 
 Die Kommando-Inventur des Kartei-Chats wurde ein zweites Mal gefahren — einmal vor und einmal
