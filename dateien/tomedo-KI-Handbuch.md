@@ -2039,16 +2039,17 @@ zollsoft-Erweiterungen und hilft bei zwei Dingen, die der Generator nicht leiste
 
 **Greift bei Stichworten wie:** Prompt für ein Formular schreiben · Formular verbessern · Score als `expression` · `shortTitle`-Regeln · Matrixwert im Briefkommando unbrauchbar · Briefkommando-Auslesen vorbereiten
 
-**Aufbau.** Baukastenskill für SurveyJS-JSON mit zollsoft-Erweiterungen. Neun Referenzen, getrennt nach Elementtypen, Konventionen, Score-Bau, Datenanbindung und Prüfregeln.
+**Aufbau.** Baukastenskill für SurveyJS-JSON mit zollsoft-Erweiterungen. Zehn Referenzen, getrennt nach Elementtypen, Konventionen, Gestaltung, Score-Bau, Datenanbindung und Prüfregeln.
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
 | `conventions.md` | 159 | Namens- und `shortTitle`-Regeln im Volltext, Lokalisierungsform, Eindeutigkeit über Seiten hinweg. |
-| `element-types.md` | 220 | Alle verwendbaren Elementtypen mit Beispiel-JSON. |
+| `element-types.md` | 223 | Alle verwendbaren Elementtypen mit Beispiel-JSON. |
+| `gestaltung.md` | 140 | Was von der Gestaltung im Browser ankommt: was der Editor beim Speichern verwirft, was arzt-direct überstimmt, CSS in HTML-Elementen, Verhalten auf dem Smartphone. |
 | `score-builder.md` | 247 | Score-Funktionen und das Muster, jeden relevanten Wert zusätzlich als `expression` mit eigenem `shortTitle` herauszuziehen. |
 | `stammdaten-bindings.md` | 139 | Rückschrieb in die tomedo-Stammdaten. |
 | `karteitext-template.md` | 127 | `karteitextHtmlTemplate` als Render-Direktive. |
-| `permalink-api.md` | 139 | Formulare ohne Browser einsenden. |
+| `permalink-api.md` | 147 | Formulare ohne Browser einsenden. |
 | `page-actions.md` | 112 | Seitenaktionen und Verzweigung auf Seitenebene. |
 | `lint-rules.md` | 132 | Prüfregeln vor Abgabe. |
 | `llm-toolebene.md` | 109 | Wie Formularwerte im KI-Kontext sichtbar werden. |

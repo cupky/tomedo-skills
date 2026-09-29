@@ -3,6 +3,36 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.11 — 2026-09-29
+
+**Neu: was von der Formulargestaltung im Browser wirklich ankommt.** Der Skill für
+Patientenformulare hat eine eigene Referenz zur Gestaltung. Sie trennt drei Fälle: Was der
+tomedo-Editor beim Speichern still entfernt, was arzt-direct zur Laufzeit überstimmt und was
+SurveyJS selbst so macht. Geprüft am 29.09.2026 an fünf live geschalteten Testformularen mit
+36 Prüfpunkten, auf Desktop und auf emuliertem iPhone und Android, mit 15 echten Einsendungen.
+
+Die wichtigsten Punkte für Sie:
+
+- Gestaltung mit Inline-Styles in HTML-Elementen trägt zuverlässig. Ein `<style>`-Block wirkt
+  nur auf seiner eigenen Seite, Schriftart und Schriftstärke nur mit dem Selektor
+  `.sd-html .klasse`, mit `!important` oder als Inline-Style.
+- „Eine Frage je Bildschirm" (`questionsOnPageMode`) wirkt über arzt-direct nicht.
+- Eingeklappte Gruppen, Titel links vom Feld, Breitenangaben, Ja/Nein als Radio, das
+  Einzelhäkchen mit Text und die Option „Sonstiges" entfernt der Editor beim Speichern. Das
+  Einzelhäkchen erscheint dann ganz ohne Fragetext.
+- Auf dem Smartphone werden mehrspaltige Auswahlen einspaltig, die Schmerzskala 0–10 bricht
+  in drei Zeilen um.
+- Überschriften auf der Abschlussseite als `<div>` setzen, nicht als `<h3>`.
+
+**Berichtigt: `{"de": …}` wird angezeigt.** Bisher hieß es, ein Text mit dem Sprachschlüssel
+`de` erscheine nicht. arzt-direct speichert aber selbst alle Titel und HTML-Texte als
+`{"de": …}` und zeigt sie an. Für eigene Bögen bleibt `default` die Konvention; die Prüfung
+warnt weiter, aber ohne Handlungsbedarf bei einer aus arzt-direct gezogenen Definition.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-patientenformulare | 1.1 | neue Referenz `gestaltung.md`; `{"de"}`-Aussage berichtigt; Stolperfallen, Layout-Properties und Live-Definition ergänzt |
+
 ## 1.10 — 2026-09-29
 
 **Ein Import überschreibt keinen vorhandenen Karteieintragstyp.** In Fassung 1.9 war noch offen,
