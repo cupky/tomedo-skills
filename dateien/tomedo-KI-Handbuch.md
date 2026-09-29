@@ -2077,7 +2077,7 @@ Was dann passiert: Der Skill recherchiert die gängigen Bausteine, fragt nach Zw
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `dict-format.md` | 133 | Aufbau der Exportdatei: jeder Schlüssel mit Belegstatus, alle 45 Feldarten mit internem Namen, die sechs Stufen von „Im Karteitext", offene Fragen. |
+| `dict-format.md` | 134 | Aufbau der Exportdatei: jeder Schlüssel mit Belegstatus, alle 45 Feldarten mit internem Namen, die sechs Stufen von „Im Karteitext", offene Fragen. |
 | `editor-optionen.md` | 63 | Welche Einstellungen der Editor je Feldart anbietet, mit allen Menüwerten. |
 
 **So fragen.**
@@ -2088,7 +2088,7 @@ Was dann passiert: Der Skill fragt nach Kürzel und Namen, schlägt sprechende V
 
 **Besser nicht.** „Ändere die Variablennamen in unserem Verlaufsbogen." — Briefvorlagen, Statistik und Kartei-Chat hängen an diesen Namen.
 
-*Zum Testen immer ein neues Kürzel nehmen: Was beim Import eines schon vorhandenen Kürzels passiert, ist nicht geprüft.*
+*Ein Import überschreibt nie: Gibt es das Kürzel schon, legt tomedo einen zweiten Typ `KÜRZEL_import` mit demselben Namen an, der alte bleibt unverändert daneben stehen. Nicht geprüft ist, ob vorhandene Karteieinträge danach am alten Typ hängen. Zum Testen deshalb weiter ein neues Kürzel nehmen.*
 
 ### `tomedo-statistik-hql`
 

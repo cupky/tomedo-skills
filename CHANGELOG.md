@@ -3,6 +3,22 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.10 — 2026-09-29
+
+**Ein Import überschreibt keinen vorhandenen Karteieintragstyp.** In Fassung 1.9 war noch offen,
+was passiert, wenn Sie eine Datei mit einem Kürzel einspielen, das es in tomedo schon gibt. Jetzt
+ist es geprüft: tomedo lässt den vorhandenen Typ unverändert und legt einen zweiten an, mit dem
+Kürzel `KÜRZEL_import` und demselben Namen. Ein Hinweisfenster meldet das. Wer also einen
+geänderten Eintrag zurückspielt, hat danach zwei Typen nebeneinander und muss selbst entscheiden,
+welcher bleibt. Der Skill sagt das jetzt in der Import-Anleitung. Die Prüfung warnt, wenn das
+Kürzel in Ihrer `praxis-interna.md` als vergeben eingetragen ist. **Noch nicht geprüft:** ob Karteieinträge, die schon angelegt sind,
+danach am alten Typ hängen. Zum Testen deshalb weiter ein neues Kürzel nehmen. Nachgeprüft am
+29.09.2026 an der Referenzinstallation. Die Katalogkarte im Handbuch ist entsprechend berichtigt.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-cke | 1.1 | Import bei vorhandenem Kürzel belegt: kein Überschreiben, neuer Typ `KÜRZEL_import`; Import-Anleitung und Warnung der Prüfung |
+
 ## 1.9 — 2026-09-28
 
 **Neu: ein zehnter Skill für Custom-Karteieinträge.** `tomedo-cke` baut strukturierte
