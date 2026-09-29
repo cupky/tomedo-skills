@@ -33,6 +33,10 @@ warnt weiter, aber ohne Handlungsbedarf bei einer aus arzt-direct gezogenen Defi
 |---|---|---|
 | tomedo-patientenformulare | 1.1 | neue Referenz `gestaltung.md`; `{"de"}`-Aussage berichtigt; Stolperfallen, Layout-Properties und Live-Definition ergänzt |
 
+**Nachtrag: Das PDF-Handbuch ist wieder vollständig.** Im Skillkatalog des PDFs fehlten seit
+mehreren Fassungen 6 der 10 Skill-Karten, auf der Webseite waren alle da. Jetzt stehen alle
+zehn Karten mit ihren Begleitdateien auch im PDF, das damit 100 Seiten hat.
+
 ## 1.10 — 2026-09-29
 
 **Ein Import überschreibt keinen vorhandenen Karteieintragstyp.** In Fassung 1.9 war noch offen,
