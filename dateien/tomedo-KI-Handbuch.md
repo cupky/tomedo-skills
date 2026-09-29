@@ -1745,7 +1745,7 @@ Fassung der Messungen aus A.3.
 
 # Teil 3 · Konfigurieren
 
-**Worum es hier geht.** Um neun vorbereitete Skills, mit denen eine KI
+**Worum es hier geht.** Um zehn vorbereitete Skills, mit denen eine KI
 außerhalb von tomedo bei der Konfiguration hilft: Briefvorlage bauen, Aktionskette
 entwerfen, Formular vorbereiten, Auswertung aufsetzen, Prompt für den Kartei-Chat
 schreiben. Diese Skills sind der Grund, aus dem es diese Sammlung gibt. Teil 1
@@ -1896,7 +1896,7 @@ zwischen zwei Ständen geändert hat.
 
 ## 6 · Der Katalog
 
-Neun Skills, entlang der Aufgaben, die in einer Praxis tatsächlich anfallen. Jeder nennt: wofür er gedacht ist, woran er sich orientiert, wofür er **nicht** gedacht ist,
+Zehn Skills, entlang der Aufgaben, die in einer Praxis tatsächlich anfallen. Jeder nennt: wofür er gedacht ist, woran er sich orientiert, wofür er **nicht** gedacht ist,
 und wie eine gute Frage an ihn aussieht.
 
 **Aufbau.** Jeder Skill besteht aus einem Steuerteil und, wo nötig, aus
@@ -2063,6 +2063,33 @@ Was dann passiert: Der Skill recherchiert die gängigen Bausteine, fragt nach Zw
 
 *`name` und `shortTitle` nie ohne Absprache ändern — das bricht Briefkommandos und Aktionsketten.*
 
+### `tomedo-cke`
+
+*Organisationsweit · Zusatz für die externe KI*
+
+**Wofür.** Custom-Karteieinträge bauen, ohne sie im Editor zusammenzuklicken. Sie beschreiben Zweck und Felder in normaler Sprache; der Skill fragt nach, was fehlt, und ein beiliegendes Skript erzeugt daraus die Datei, die Sie in der Karteieintragstypenverwaltung über **Import** einspielen. Auch ein exportierter Eintrag lässt sich so ändern und zurückspielen.
+
+**Nicht dafür.** Nicht für Patientenformulare — die füllt der Patient aus, dafür gibt es `tomedo-patientenformulare`. Und nicht für die Briefkommandos, die CKE-Werte später auslesen.
+
+**Greift bei Stichworten wie:** strukturierter Karteieintrag · Eingabemaske für die Kartei · Mehrfachauswahl, Zahl, Datum im CKE · Gruppe mit Unterfeldern · Im Karteitext · CKE exportieren und ändern · Hersteller-CKE als Vorlage
+
+**Aufbau.** Werkzeugskill mit Skript. Die KI schreibt eine kurze Beschreibung, das Skript baut und prüft die Importdatei. Belegt an allen 45 Feldarten des Editors und an den Vorlagen, die tomedo selbst mitbringt.
+
+| Begleitdatei | Zeilen | Inhalt |
+|---|---:|---|
+| `dict-format.md` | 133 | Aufbau der Exportdatei: jeder Schlüssel mit Belegstatus, alle 45 Feldarten mit internem Namen, die sechs Stufen von „Im Karteitext", offene Fragen. |
+| `editor-optionen.md` | 63 | Welche Einstellungen der Editor je Feldart anbietet, mit allen Menüwerten. |
+
+**So fragen.**
+
+> „Bau mir einen Karteieintrag für die Kopfschmerz-Erstuntersuchung: Kopfschmerztage pro Monat als Zahl, Seite als Auswahl links, rechts, beidseits, Aura ja oder nein, dazu Blutdruck und Puls, und am Ende ein Datum für die Wiedervorstellung, das leer bleiben darf."
+
+Was dann passiert: Der Skill fragt nach Kürzel und Namen, schlägt sprechende Variablennamen vor und liefert die Importdatei samt Prüfbericht und Import-Anleitung. Felder, die ein Formular, eine Aktionskette oder ein Script aufrufen, stellen Sie nach dem Import in tomedo ein — deren Ziel steht in keinem Export.
+
+**Besser nicht.** „Ändere die Variablennamen in unserem Verlaufsbogen." — Briefvorlagen, Statistik und Kartei-Chat hängen an diesen Namen.
+
+*Zum Testen immer ein neues Kürzel nehmen: Was beim Import eines schon vorhandenen Kürzels passiert, ist nicht geprüft.*
+
 ### `tomedo-statistik-hql`
 
 *Organisationsweit · baut auf: Teil 1 · Abschnitt 5 · Teil 2 · §5*
@@ -2078,7 +2105,7 @@ Was dann passiert: Der Skill recherchiert die gängigen Bausteine, fragt nach Zw
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
 | `datenmodell_ZOLLSOFT_DB-dump.md` | 7914 | Vollständige Tabellenreferenz aus dem Datenbank-Auszug — Nachschlagewerk, nicht zum Lesen. |
-| `datenmodell.md` | 2149 | Kuratierte Tabellenreferenz mit den praktisch relevanten Feldern. |
+| `datenmodell.md` | 2175 | Kuratierte Tabellenreferenz mit den praktisch relevanten Feldern. |
 | `query-bausteine.md` | 1434 | 37 bewährte Bausteine, von der Patientensegmentierung bis zur Leistungsauswertung. |
 | `lessons-learned.md` | 1175 | 46 dokumentierte Fehlerquellen: Feld existiert nicht, Ergebnis unplausibel, JOIN zieht Dubletten. |
 | `enums-und-funktionen.md` | 497 | Enum-Werte, Bitfelder und tomedo-eigene Funktionen. |
@@ -2150,8 +2177,8 @@ Ansteuerung von außen.
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `menue-atlas.md` | 144 | Belegte Menüpfade und Pflegeorte, inklusive der Trennung Einstellungen gegen Admin und der Rollenabhängigkeit der Menüsichtbarkeit. |
-| `scriptability.md` | 172 | tomedo.sdef, Toolbar-Buttons, Ereignis-Hooks, Deeplinks, Skript-Platzhalter, API-Verwaltung. |
+| `menue-atlas.md` | 145 | Belegte Menüpfade und Pflegeorte, inklusive der Trennung Einstellungen gegen Admin und der Rollenabhängigkeit der Menüsichtbarkeit. |
+| `scriptability.md` | 201 | tomedo.sdef, Toolbar-Buttons, Ereignis-Hooks, Deeplinks, Skript-Platzhalter, API-Verwaltung. |
 | `applescript-rezeptbuch.md` | 280 | Fertige Rezepte für den Aufruf von außen: Nutzerkennung ermitteln, Prompt per Umgebungsvariable, Rückgabe in die Kartei. |
 
 **So fragen.**
@@ -2185,7 +2212,7 @@ Was dann passiert: Menü **Format**, Eintrag LLM-Textgenerator — der Generator
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
 | `aufruf-und-parameter.md` | 137 | Endpunktschema, Positivliste der akzeptierten Modellnamen und Parameter, und warum `tools` keinen Fehler erzeugt. |
-| `fehlerdiagnose.md` | 108 | Neun geprüfte Routen, HTTP 422 und 400 im Klartext, `finish_reason: length` ohne `content`, robuste Auswertung mit `-w '%{http_code}'`. |
+| `fehlerdiagnose.md` | 110 | Neun geprüfte Routen, HTTP 422 und 400 im Klartext, `finish_reason: length` ohne `content`, robuste Auswertung mit `-w '%{http_code}'`. |
 | `modellwahl.md` | 115 | Welche Modellnamen der Server annimmt und was die Wahl praktisch ändert. |
 | `kosten-und-budget.md` | 182 | Die Rechenformel für Denk-Tokens, die Untertreibung des Felds `cost` und der Lasttest, in dem 10,10 $ ohne Sperre durchliefen. |
 | `betrieb-und-messung.md` | 123 | Durchsatz 2,7 Aufrufe pro Minute, Messmethodik, Mindestläufe je Arm, Kostendeckel mit getestetem Abbruchweg. |

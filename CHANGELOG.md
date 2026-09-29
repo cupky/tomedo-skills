@@ -3,6 +3,48 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.9 — 2026-09-28
+
+**Neu: ein zehnter Skill für Custom-Karteieinträge.** `tomedo-cke` baut strukturierte
+Karteieinträge (Standardmedientyp *Custom*) als fertige Datei, die sich in der
+Karteieintragstypenverwaltung über *Import* einspielen lässt. Sie beschreiben Zweck und Felder in
+normaler Sprache, die KI legt daraus eine Beschreibung an, und ein beiliegendes Skript erzeugt und
+prüft die Importdatei. Alle 45 Feldarten des Editors sind belegt, von Auswahl und Mehrfachauswahl
+über Zahl, Datum und Score bis zu den Vitalwerten. Dazu kommen Gruppen mit Unterfeldern, die sechs
+Stufen von „Im Karteitext", Popovergröße und Karteitext. Ein bestehender Eintrag lässt sich
+exportieren, ändern und wieder einspielen, ohne dass Unbekanntes verloren geht. Geprüft an
+23 echten Dateien, darunter die 21 Vorlagen, die tomedo selbst mitbringt, und an zwei
+Importen an der Referenzinstallation. **Nach dem Import selbst einstellen:** welches Formular,
+welche Aktionskette oder welches Script ein Feld aufruft. Das ist aus keinem Export belegt.
+
+**Zwei Verweise zeigten an die falsche Stelle, eine Liste war unvollständig.** Der Kartei-Chat-Skill schickte „CKE-Felder
+anlegen" zu den Patientenformularen, der Menü-Atlas ordnete die Karteieintragstypen den
+Textbausteinen zu. Beide zeigen jetzt auf `tomedo-cke`. Die Statistik-Anleitung kannte 10 der 45
+Feldtypen, die in `modus` stehen können; jetzt kennt sie alle, dazu die Altformen, die in älteren
+Einträgen vorkommen.
+
+**Fernsteuerung des Editors neben der laufenden Arbeit.** Neu in der Navigation, belegt am
+28.09.2026: Ein per Bedienungshilfen geöffnetes Menü in tomedo fängt Tastatureingaben ab, die
+eigentlich für ein anderes Programm gedacht waren. Ein Klick auf ein Markierungsfeld holt tomedo in
+den Vordergrund. Und der Export eines Karteieintragstyps landet ohne Nachfrage auf dem Schreibtisch.
+
+**HTTP 500 am LLM-Endpunkt kann an einem Schrägstrich liegen.** Endet die hinterlegte
+Server-URL auf `/`, entsteht beim Anhängen von `/llmservice` ein doppelter Schrägstrich. tomedo
+antwortet darauf nicht mit 404, sondern nach etwa 20 Millisekunden mit HTTP 500. Das sieht aus
+wie ein Serverausfall, ist aber nur eine falsch zusammengesetzte Adresse. Erkennbar ist es am
+Pfad in der Fehlermeldung, dort steht `//llmservice`. Abhilfe: den Schrägstrich am Ende der
+Server-URL entfernen. Nachgemessen am 28.09.2026 mit tomedo v1.170.0.16: ohne den doppelten
+Schrägstrich HTTP 200, eine erfundene Route zum Vergleich HTTP 404.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-llm-endpunkt | 1.3 | Fehlertabelle: HTTP 500 durch doppelten Schrägstrich; Diagnoseschritt 1 prüft den Pfad auf `//` |
+| **tomedo-cke** | **1.0** | **neu:** Custom-Karteieinträge als Importdatei bauen, prüfen, ändern; 45 Feldarten, Gruppen, Karteitext |
+| tomedo-statistik-hql | 1.7 | vollständige Liste der Feldtypen (`modus`) in Custom-Karteieinträgen, Altformen, Gruppen-Hierarchie |
+| tomedo-karteichat-prompting | 1.5 | Verweis „CKE-Felder anlegen" zeigt auf `tomedo-cke` |
+| tomedo-navigation | 1.2 | Karteieintragstypen → `tomedo-cke`; neuer Abschnitt zum CKE-Editor per Bedienungshilfen |
+| tomedo-kommandos | 1.2 | Zusammenspiel mit `tomedo-cke`: Variablenname als Schlüssel für `karteiEintragWert` |
+
 ## 1.8 — 2026-09-23
 
 **Die Metabase-Anleitung bringt ihr Import-Skript jetzt selbst mit.** Bisher verwies sie auf ein

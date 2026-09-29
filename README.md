@@ -3,7 +3,7 @@
 Anleitungen zur KI-Nutzung in tomedo, als Handbuch und als herunterladbare
 Skills. **Die Seite dazu: https://cupky.github.io/tomedo-skills/**
 
-Im Repository liegt die Seite mit den Dateien zum Herunterladen: die neun
+Im Repository liegt die Seite mit den Dateien zum Herunterladen: die zehn
 Anleitungen einzeln und als Sammelpaket sowie das Handbuch als Markdown.
 
 ## Geltungsbereich
