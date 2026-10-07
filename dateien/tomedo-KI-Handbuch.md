@@ -2045,13 +2045,13 @@ zollsoft-Erweiterungen und hilft bei zwei Dingen, die der Generator nicht leiste
 |---|---:|---|
 | `conventions.md` | 159 | Namens- und `shortTitle`-Regeln im Volltext, Lokalisierungsform, Eindeutigkeit über Seiten hinweg. |
 | `element-types.md` | 223 | Alle verwendbaren Elementtypen mit Beispiel-JSON. |
-| `gestaltung.md` | 140 | Was von der Gestaltung im Browser ankommt: was der Editor beim Speichern verwirft, was arzt-direct überstimmt, CSS in HTML-Elementen, Verhalten auf dem Smartphone. |
+| `gestaltung.md` | 179 | Was von der Gestaltung im Browser ankommt: was der Editor beim Speichern verwirft, was arzt-direct überstimmt, CSS in HTML-Elementen, Verhalten auf dem Smartphone, Abstände zwischen Feldern. |
 | `score-builder.md` | 247 | Score-Funktionen und das Muster, jeden relevanten Wert zusätzlich als `expression` mit eigenem `shortTitle` herauszuziehen. |
 | `stammdaten-bindings.md` | 139 | Rückschrieb in die tomedo-Stammdaten. |
 | `karteitext-template.md` | 127 | `karteitextHtmlTemplate` als Render-Direktive. |
 | `permalink-api.md` | 147 | Formulare ohne Browser einsenden. |
 | `page-actions.md` | 112 | Seitenaktionen und Verzweigung auf Seitenebene. |
-| `lint-rules.md` | 132 | Prüfregeln vor Abgabe. |
+| `lint-rules.md` | 162 | Prüfregeln vor Abgabe, darunter G1–G17 gegen unwirksame Gestaltung. |
 | `llm-toolebene.md` | 109 | Wie Formularwerte im KI-Kontext sichtbar werden. |
 
 **So fragen.**

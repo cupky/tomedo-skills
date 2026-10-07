@@ -3,6 +3,34 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.12 — 2026-10-07
+
+**Neu: Gestaltung nur noch aus der Freigabeliste.** Der Skill für Patientenformulare
+verwendet für die Gestaltung nur noch Mittel, deren Wirkung in arzt-direct belegt ist. Was
+der tomedo-Editor still verwirft oder arzt-direct überstimmt, steht in einer Negativliste mit
+der jeweils funktionierenden Alternative. Wünschen Sie etwas Ungeprüftes, sagt die KI das und
+markiert es in der Abgabe als „ungeprüft, testen".
+
+- Die mitgelieferte Prüfung (`scripts/lint.py`) erkennt diese Mittel jetzt mechanisch
+  (Regeln G1–G17) und blockiert die Abgabe, etwa bei eingeklappten Gruppen, Breitenangaben,
+  dem Einzelhäkchen ohne Fragetext oder HTML im Fragetitel.
+- Neue Vorlage `assets/skeleton-gestaltung.json`: ein gestaltetes Formular über drei Seiten,
+  in dem jedes Mittel belegt ist.
+
+**Neu: Abstände zwischen Feldern verdichten.** Geprüft am 05.10.2026 an einem
+Sondenformular mit sechs Seiten, am Desktop und im PDF-Export. SurveyJS bietet dafür keine
+Einstellung im JSON. Wirksam ist ein `<style>`-Block mit kleinerem Kartenpolster und
+Titelabstand: Der Abstand von Feld zu Feld sinkt um etwa 15 %, der Abstand vom Titel zur
+Eingabe halbiert sich, die Eingabefelder bleiben gleich groß. Der Block muss auf jeder Seite
+stehen. Im PDF wirkt er nicht. Ein leeres HTML-Element als Platzhalter vergrößert Abstände
+gezielt. Das Rezept steht in `references/gestaltung.md`, Abschnitt 7. **Auf dem Smartphone
+ist das noch nicht geprüft.** Die Variante, die alles proportional verkleinert
+(`--sjs-base-unit`), sperrt die Prüfung deshalb bis zum Handytest.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-patientenformulare | 1.2 | Freigabe- und Negativliste in `SKILL.md`; Prüfregeln G1–G17 in `lint.py` und `lint-rules.md`; neue Vorlage `skeleton-gestaltung.json`; `gestaltung.md` Abschnitt 7 „Abstände zwischen Feldern" |
+
 ## 1.11 — 2026-09-29
 
 **Neu: was von der Formulargestaltung im Browser wirklich ankommt.** Der Skill für
