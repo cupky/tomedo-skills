@@ -3,6 +3,30 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.13 — 2026-10-13
+
+**Neu: ein Skill für Patientenmarker.** `tomedo-marker` baut automatische Marker, also Marker, die tomedo
+selbst setzt und entfernt, etwa bei einer bestimmten Diagnose, Kasse, Altersgruppe oder einer fehlenden
+Ziffer im Quartal. Er wählt zwischen den drei Modi einfach, erweitert und modular, schreibt die Regel und
+prüft sie vor dem Einspielen mit einem beiliegenden Skript gegen einen erfundenen Patienten. Belegt am
+12.10.2026 an der Referenzinstallation, an Demo-Akten und an 116 Forumsthreads.
+
+- Die Fallen, an denen Marker im Alltag scheitern, stehen mit Abhilfe drin: „enthält nicht“ ist im modularen
+  Modus kein Ausschluss, `heuteQuartal - 1` umfasst fünf Quartale, Codes sind Text, Fehler bleiben in der
+  Kartei stumm, und ein Klick auf einen Modus-Reiter ändert den Marker sofort.
+- Wann tomedo rechnet: beim Laden der Kartei, nicht im Hintergrund. Zeitabhängige Marker brauchen für
+  Statistik, Recall und Aktionsketten die Vorberechnung.
+- Die Nachbar-Skills verweisen jetzt auf den neuen Skill: Aktionsketten (Marker rechnet, Kette handelt),
+  Briefkommandos (`istMarkerGesetzt`), Statistik (Marker als Filter) und Navigation (Admin → Marker).
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-marker | 1.0 | neu: `SKILL.md`, sieben Referenzen, Skripte `marker_skript.py` und `marker_inventar.py`, Fernsteuerung in `scripts/ax/` |
+| tomedo-aktionsketten | 1.2 | Abschnitt „Synergie mit Marker-Skill“ |
+| tomedo-kommandos | 1.3 | Abschnitt `tomedo-marker` unter „Synergie mit anderen Skills“ |
+| tomedo-statistik-hql | 1.8 | Lese-Routing: Marker als Filter |
+| tomedo-navigation | 1.3 | Menüatlas: `Admin › Marker` führt zu `tomedo-marker`; Abgrenzung in der Beschreibung |
+
 ## 1.12 — 2026-10-07
 
 **Neu: Gestaltung nur noch aus der Freigabeliste.** Der Skill für Patientenformulare

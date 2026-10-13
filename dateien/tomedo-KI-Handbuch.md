@@ -1745,7 +1745,7 @@ Fassung der Messungen aus A.3.
 
 # Teil 3 · Konfigurieren
 
-**Worum es hier geht.** Um zehn vorbereitete Skills, mit denen eine KI
+**Worum es hier geht.** Um elf vorbereitete Skills, mit denen eine KI
 außerhalb von tomedo bei der Konfiguration hilft: Briefvorlage bauen, Aktionskette
 entwerfen, Formular vorbereiten, Auswertung aufsetzen, Prompt für den Kartei-Chat
 schreiben. Diese Skills sind der Grund, aus dem es diese Sammlung gibt. Teil 1
@@ -1896,7 +1896,7 @@ zwischen zwei Ständen geändert hat.
 
 ## 6 · Der Katalog
 
-Zehn Skills, entlang der Aufgaben, die in einer Praxis tatsächlich anfallen. Jeder nennt: wofür er gedacht ist, woran er sich orientiert, wofür er **nicht** gedacht ist,
+Elf Skills, entlang der Aufgaben, die in einer Praxis tatsächlich anfallen. Jeder nennt: wofür er gedacht ist, woran er sich orientiert, wofür er **nicht** gedacht ist,
 und wie eine gute Frage an ihn aussieht.
 
 **Aufbau.** Jeder Skill besteht aus einem Steuerteil und, wo nötig, aus
@@ -1996,6 +1996,38 @@ Was dann passiert: Der Skill baut die Kette und trennt dabei den blockierenden S
 **Besser nicht.** „Warum ist meine Kette langsam?" — Laufzeitfragen gehören in ein Support-Ticket.
 
 *Vorlagen müssen vor der Kette existieren: Leistungs-, Diagnose-, Aufgaben- und Nachrichtenvorlagen.*
+
+### `tomedo-marker`
+
+*Organisationsweit · Zusatz für die externe KI*
+
+**Wofür.** Patientenmarker bauen, die sich selbst setzen: Regeln in den drei Modi einfach, erweitert und modular. Der Skill wählt den Modus, schreibt die Regel aus dem vollständigen Variablenkatalog, prüft sie vor dem Einspielen mit einem beiliegenden Skript im nachgebauten tomedo-Rahmen gegen einen erfundenen Patienten und liefert die Einrichtungsanleitung dazu.
+
+**Nicht dafür.** Nicht für Aktionsketten, die einen Marker setzen oder auf ihn reagieren, dafür gibt es `tomedo-aktionsketten`. Nicht für `istMarkerGesetzt` im Brief (`tomedo-kommandos`) und nicht für Statistiken über gesetzte Marker (`tomedo-statistik-hql`).
+
+**Greift bei Stichworten wie:** Marker soll sich automatisch setzen · Marker setzt sich nie · Marker steht bei allen · Python Fehler in Tag · „enthält nicht“ greift falsch · letzte vier Quartale · Marker zurücksetzen · Checkbox-Marker
+
+**Aufbau.** Navigator mit Werkzeugen. Sieben Referenzen: alle 150 Skriptvariablen, der Ausführungsrahmen, die 25 Elementtypen des modularen Modus, Fehlerbilder, das Zusammenspiel mit Ketten, Kommandos und Statistik, Bedienung und Datenmodell. Dazu zwei Skripte: Prüfung und Testlauf einer Regel sowie ein schreibgeschütztes Inventar der vorhandenen Marker. Belegt an der Referenzinstallation am 12.10.2026 und an 116 Forumsthreads.
+
+| Begleitdatei | Zeilen | Inhalt |
+|---|---:|---|
+| `modular.md` | 401 | Alle 25 Elementtypen des modularen Modus mit Feldern, Operatoren und zulässigen Werten, dazu die Logik der Verknüpfung. |
+| `variablen.md` | 253 | Alle 150 Skriptvariablen mit Datentyp und Herkunft, dazu der Quelltext der vordefinierten Funktionen. |
+| `skriptsprache.md` | 184 | Wie tomedo ein Skript ausführt, Schlüssel der Listen, Zeitfenster, Testen und Debuggen. |
+| `zusammenspiel.md` | 108 | Wann gerechnet wird, Automatik je Patient, Aktionsketten, Briefkommandos, Statistik, Zurücksetzen. |
+| `datenmodell.md` | 86 | Marker-Tabellen im lokalen Cache, Lese-Rezept und Vergleich vorher und nachher. |
+| `bedienung.md` | 78 | Marker-Verwaltung: was sofort speichert, sichere Arbeitsweise, Fernsteuerung per Bedienungshilfen. |
+| `fehlerbilder.md` | 63 | Meldung, Ursache, Abhilfe; Marker kommt nie, steht bei allen, hinkt hinterher. |
+
+**So fragen.**
+
+> „Baue mir einen Marker, der sich setzt, wenn ein Patient eine gesicherte Dauerdiagnose E11 hat, aber in den letzten vier Quartalen keine Ziffer 03220 abgerechnet wurde.“
+
+Was dann passiert: Der Skill wählt den Modus erweitert, weil Ausschluss und Zeitfenster zusammenkommen. Er schreibt `heuteQuartal - 0.75` statt des verbreiteten `heuteQuartal - 1`, das fünf Quartale umfasst, filtert die Diagnosen auf gesichert und nicht abgesetzt und prüft die Regel mit dem beiliegenden Skript. Dazu nennt er den Haken: Der Marker rechnet erst, wenn die Kartei geladen wird. Für Recall und Statistik braucht es die Vorberechnung.
+
+**Besser nicht.** „Klick dich durch die Marker-Verwaltung und sieh nach, wie unsere Marker eingestellt sind.“ Ein Klick auf einen der Reiter einfach, erweitert oder modular ändert den Modus des gewählten Markers und speichert sofort. Zum Ansehen dient der Export.
+
+*Fehler bleiben in der Kartei stumm: Ein kaputtes Skript fällt nur auf, wenn der Marker nie kommt oder bei allen steht. tomedo schaltet „automatisch setzen“ beim Übernehmen eines Skripts von selbst ein. Deshalb jede Regel erst an einer Demo-Akte testen.*
 
 ### `tomedo-textbausteine`
 
@@ -2178,7 +2210,7 @@ Ansteuerung von außen.
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `menue-atlas.md` | 145 | Belegte Menüpfade und Pflegeorte, inklusive der Trennung Einstellungen gegen Admin und der Rollenabhängigkeit der Menüsichtbarkeit. |
+| `menue-atlas.md` | 146 | Belegte Menüpfade und Pflegeorte, inklusive der Trennung Einstellungen gegen Admin und der Rollenabhängigkeit der Menüsichtbarkeit. |
 | `scriptability.md` | 201 | tomedo.sdef, Toolbar-Buttons, Ereignis-Hooks, Deeplinks, Skript-Platzhalter, API-Verwaltung. |
 | `applescript-rezeptbuch.md` | 280 | Fertige Rezepte für den Aufruf von außen: Nutzerkennung ermitteln, Prompt per Umgebungsvariable, Rückgabe in die Kartei. |
 
