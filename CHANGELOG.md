@@ -3,6 +3,20 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.14 — 2026-10-13
+
+**Berichtigt: Verweise auf Dateien, die nicht im Paket liegen.** Eine Importprüfung aller
+veröffentlichten Archive hat drei Verweise ins Leere gefunden. Aktionsketten und Briefkommandos
+nannten für die Marker-Belege `references/zusammenspiel.md`, gemeint ist die Datei im Skill
+`tomedo-marker`. Aktionsketten verwies außerdem auf ein Rezeptbuch, das nie ausgeliefert wurde.
+Jetzt führt der Verweis zu den Mustern in `ausloser.md` und `fragen.md`. Am Inhalt ändert sich
+nichts, die KI sucht aber keine fehlenden Dateien mehr.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-aktionsketten | 1.3 | Verweis auf das Marker-Skill eindeutig; Rezeptbuch-Verweis auf vorhandene Muster umgeleitet |
+| tomedo-kommandos | 1.4 | Verweis auf das Marker-Skill eindeutig |
+
 ## 1.13 — 2026-10-13
 
 **Neu: ein Skill für Patientenmarker.** `tomedo-marker` baut automatische Marker, also Marker, die tomedo
