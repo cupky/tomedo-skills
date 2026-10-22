@@ -3,6 +3,136 @@
 Die Versionsnummer je Skill steht im Feld `version` der jeweiligen `SKILL.md`
 und ist nach dem Entpacken auch beim Anwender ablesbar.
 
+## 1.19 — 2026-10-22
+
+**Texte überarbeitet.** Formulierungen in allen elf Skills vereinheitlicht; die Marke „[ungeprüft]“ ist überall
+gleich erklärt: noch nicht in der Oberfläche nachgestellt, vor dem Einsatz an einer Testakte prüfen. Am Inhalt
+ändert sich nichts.
+
+## 1.18 — 2026-10-22
+
+**Alle elf Skills sind jetzt systematisch überprüft.** Die zweite Runde umfasst Patientenformulare, Statistik,
+KarteiChat, LLM-Endpunkt und Metabase-Migration. Was in der Oberfläche noch nicht nachgestellt ist, trägt die Marke
+„[ungeprüft]“.
+
+- **Statistik:** Nicht existierende Tabellen und Spalten berichtigt, darunter die Tabelle für Sperrtage (die
+  Beispielabfrage lief dadurch nie). Mehrere Wertelisten waren falsch, etwa die Sichtbarkeit von Aufgaben (vertauscht)
+  und abgesetzte Diagnosen. Das Statistikfenster blendet gesperrte Patienten aus; seine Zahlen können deshalb unter
+  denen anderer Werkzeuge liegen. Die Filter der Statistiken sind vollständig beschrieben.
+  **Außerdem entfernt:** Fassung 1.8 nannte als Beispiele zwei Personennamen, Raumnamen und interne Rechnernamen;
+  sie sind durch neutrale Beispiele ersetzt.
+- **Metabase-Migration:** Die bisher beschriebene Filter-Syntax gibt es in tomedo nicht; die Übersetzungstabelle ist
+  neu und deckt über 20 tomedo-Filtertypen ab. Die Patientenspalte muss `patientid` heißen, sonst funktioniert der
+  Sprung in die Kartei nicht.
+- **Patientenformulare:** `$[formularEintrag … 0]$` findet nur heute ausgefüllte Bögen, richtig ist `N`. tomedo kennt
+  51 Rückschrieb-Felder statt 16. Neu ist eine Referenz zur tomedo-Seite (Anfordern, Fälligkeit, Inbox, Rückschrieb).
+- **KarteiChat:** Der Chat lädt die Akte nicht mehr vor, sondern beauftragt eine eigene Kartei-Recherche.
+  Werkzeugnamen, fünf Anker der Kommando-Bibliothek und mehrere Menüwege sind berichtigt.
+- **LLM-Endpunkt:** Das Budget prüft nur der tomedo-Client vor seinen eigenen Aufrufen, Vorgabe 10 USD je Nutzer und
+  Monat; direkte Aufrufe umgehen es. Das erklärt den Messbefund „das Limit bremst nicht“. Das Handbuch ist an dieser
+  Stelle nachgezogen.
+- **Aktionsketten, Kommandos, Navigation:** Querbefunde aus der zweiten Runde, u. a. nimmt die SQL-Bedingung keine
+  Statistik-Filter, und mehrere KI-Prompts innerhalb einer Sekunde liefern nur beim ersten eine Antwort.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-statistik-hql | 1.9 | `SKILL.md` und acht Referenzen überarbeitet |
+| tomedo-metabase-migration | 1.4 | `SKILL.md` und Referenzen überarbeitet |
+| tomedo-patientenformulare | 1.3 | Referenzen überarbeitet, neu `tomedo-seite.md`, Linter um drei Regeln erweitert |
+| tomedo-karteichat-prompting | 1.7 | `SKILL.md` und Referenzen überarbeitet |
+| tomedo-llm-endpunkt | 1.4 | `SKILL.md` und Referenzen überarbeitet |
+| tomedo-aktionsketten | 1.6 | `ausloser.md`, `ki-prompt-aktion.md` |
+| tomedo-kommandos | 1.7 | `text-kommandos.md` |
+| tomedo-navigation | 1.6 | `menue-atlas.md` |
+
+## 1.17 — 2026-10-22
+
+**Fünf weitere Skills systematisch überprüft.** Wie zuvor die Aktionsketten sind jetzt Navigation,
+Briefkommandos, Custom-Karteieinträge, Marker und Textbausteine Einstellung für Einstellung überarbeitet. Was in der
+Oberfläche noch nicht nachgestellt ist, trägt die Marke „[ungeprüft]“. Diese Punkte werden als Nächstes in einer
+Testinstanz nachgeprüft.
+
+- **Navigation:** Die Pflegeorte im Admin-Menü Kalender sind umgebaut (Terminarten, Sperrtage und Terminerinnerungen
+  liegen jetzt in der Kalenderverwaltung). Das Intervall von Skripten zählt in Minuten. Ereignis-Hooks über den
+  Skriptnamen gibt es nicht. Neu sind 17 Deeplink-Ziele, die Steuerung von außen per HTTP sowie Login- und
+  Logout-Skripte.
+- **Briefkommandos:** Die Parameter des `x`-Kommandos ab Position 5 sind berichtigt, `$[x DIA+DDI …]$` liefert leer
+  und ist ersetzt, die Ersetzungstabelle des `if`-Kommandos stimmt jetzt. 25 Kommandos, 6 Keypaths und mehrere
+  %-Codes sind neu.
+- **CKE:** `$[variable]$` setzt im Karteitext die Ausgabe nach der Einstellung „Im Karteitext“ ein, nicht den reinen
+  Wert. Formeln, Scores und bedingte Gruppen sind jetzt beschrieben, dazu das Verhalten beim Ändern eines Typs mit
+  vorhandenen Einträgen. Das Prüfskript kennt drei weitere Schlüssel.
+- **Marker:** Der Haken im Marker-Popover schaltet die Automatik nicht mehr ab. Bei einem Skriptfehler bleibt der
+  Marker, wie er war. Erneutes Öffnen der Kartei rechnet nicht neu. Im modularen Modus heißt „A ohne B“ `A&-B`.
+  Das Prüfskript ist an zwei Regeln angepasst.
+- **Textbausteine:** Jede Frage ohne `ˆ` springt von selbst weiter, Abbrechen fügt nichts ein, eine Aktionskette je
+  Antwort startet erst bei OK. Der Menüweg ist Verwaltung › Textbausteine/Makros. Neu: Platzhalter, eingebettete
+  Bausteine und die Eintragsauswahl.
+- **Aktionsketten:** Briefkommandos im Fragetext einer Aktionskettenfrage werden doch ersetzt, und eine
+  Textbaustein-Antwort startet ihre Kette erst bei OK, nicht schon bei der Auswahl. Die Aktionsketten-URL kennt
+  `variablenmodus=` und liest Kennungen nur 32-bittig.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-navigation | 1.5 | `SKILL.md` und Referenzen überarbeitet |
+| tomedo-kommandos | 1.6 | `SKILL.md` und alle Referenzen überarbeitet |
+| tomedo-cke | 1.2 | Referenzen überarbeitet, neu `verhalten.md`, `cke.py` erweitert |
+| tomedo-marker | 1.1 | Referenzen überarbeitet, `marker_skript.py` angepasst |
+| tomedo-textbausteine | 1.1 | `SKILL.md` überarbeitet, zwei neue Referenzen |
+| tomedo-aktionsketten | 1.5 | Berichtigungen in `fragen.md`, `ausloser.md`, `aktionstypen.md`, `bedingungen.md`, `ki-prompt-aktion.md`, `SKILL.md` |
+
+## 1.16 — 2026-10-22
+
+**Kommandos und KarteiChat: vier Beispiel-Kommandos ersetzt, die nicht auflösen.**
+
+- **Geschlecht und Versicherung:** `$[&p.geschlecht]$` und `$[&p.versicherungsart]$` gibt es nicht, der Patient
+  hat diese Felder nicht. Stattdessen `$[patient_geschlecht]$` („männlich“ / „weiblich“) und
+  `$[patient_versichertenstatus]$` („privat“ / „gesetzlich“). Alter wie bisher `$[&p.alter]$` oder `$[palter]$`.
+- **Diagnose prüfen:** `$[d ICD-Code]$` ist kein Diagnose-Check, `d` ist das Datums-Kommando. Für „Diagnose
+  vorhanden?“ die ICD-Liste aus dem `x`-Kommando mit der Relation „enthält“ prüfen.
+- **Heute:** Einen Keypath `$[&heute]$` gibt es nicht; das heutige Datum liefert `$[d S dd.MM.yyyy]$`.
+- **Falle im KarteiChat:** Ein nicht auflösbarer Keypath ergibt keinen leeren Wert, sondern den Text „Fehler:
+  Keypath … konnte nicht aufgelöst werden!“. Im KarteiChat fällt das kaum auf, weil das Modell den Wert dann
+  aus der Akte nimmt. `$[&p.geschlecht]$` stand deshalb als „belegt“ in der Kommando-Bibliothek; in der
+  Oberfläche nachgemessen ist der Widerspruch noch nicht.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-kommandos | 1.5 | `SKILL.md` (Kommando-Tabelle, Synergie mit HQL), `konfiguratoren-steuerkommandos.md` (Beispiel Duplikatschutz) |
+| tomedo-karteichat-prompting | 1.6 | `kommando-bibliothek.md` (Stammdaten-Anker, Hinweis auf die Falle) |
+
+## 1.15 — 2026-10-22
+
+**Aktionsketten: alle Einstellungen systematisch überprüft.** Die Referenzen zu Auslösern, Bedingungen, Fragen
+und Aktionstypen stammten aus der Oberfläche vom März 2026. Jetzt ist jede Einstellung mit Wirkung und
+Randbedingungen beschrieben. Was in der Oberfläche noch nicht nachgestellt ist, trägt die Marke „[ungeprüft]“.
+
+- **Neue Auslöser:** Medikament-ATC-Code und -PZN mit den Aktionen „Verordnen“ und „Rezept Vorschau/Drucken“,
+  dazu Rezept und E-Rezept. ATC vergleicht als „beginnt mit“, mehrere Codes kommagetrennt ohne Leerzeichen,
+  nur Medikamente aus der Arzneimitteldatenbank lösen aus.
+- **Berichtigt:** Es gibt keine Auslöser-Aktionen „Löschen“ oder „Verschieben“; Diagnose, ToDo, Besuch und
+  Rechnung haben andere Aktionen als bisher beschrieben. 27 der 41 Objekte haben ein Unter-Typ-Feld; bleibt ein
+  Pflichtfeld leer, feuert der Auslöser nie.
+- **Berichtigt:** Die SQL-Bedingung im Auslöser kennt den auslösenden Patienten über `$[patientident]$`, und
+  ihre erste Ergebniszeile steht in der Kette als Briefkommando bereit.
+- **Reihenfolge beim Feuern:** Die Aktionskettenbedingung wird erst bei der Ausführung geprüft, die Wartezeit
+  wirkt danach. Mehrere Auslöser laufen alphabetisch nach Name. Bei der Verknüpfung ODER schränkt eine Seite
+  allein nichts ein.
+- **Bedingungen:** Mehrere Zeilen sind nicht automatisch UND, die oberste Zeile entscheidet. Genaue
+  Vergleichslogik je Relation (leer zählt bei „kleiner als“ als 0), der Knopf „Favoriten“ fügt ganze
+  Bedingungen ein, mehrere Beispiel-Kommandos waren falsch und sind ersetzt.
+- **Warteschlange:** Unterketten, Bedingungs- und Fragen-Schritte laufen standardmäßig erst nach dem Ende der
+  aktuellen Kette, sofort nur mit „Kette wird eingeschoben“. Einen wirksamen Endlosschleifen-Schutz gibt es nicht.
+- **Aktionstypen:** 77 Typen in sieben Untermenüs statt rund 50, darunter „Patientenformular anfordern“,
+  „Karteieintrag löschen“, Ziffern aus Code anlegen und löschen, Raum und Abrechner setzen.
+- **Start von außen:** Die URL `tomedo://aktionskette?…` übergibt Patient und Werte an die Kette. Der Skill
+  Navigation verweist jetzt darauf.
+
+| Skill | Version | geändert |
+|---|---|---|
+| tomedo-aktionsketten | 1.4 | `SKILL.md` und alle vier Referenzen `ausloser.md`, `bedingungen.md`, `fragen.md`, `aktionstypen.md` überarbeitet |
+| tomedo-navigation | 1.4 | `call aktionskette` mit Hinweis auf die URL mit Parametern (`SKILL.md`, `scriptability.md`, `applescript-rezeptbuch.md`) |
+
 ## 1.14 — 2026-10-13
 
 **Berichtigt: Verweise auf Dateien, die nicht im Paket liegen.** Eine Importprüfung aller

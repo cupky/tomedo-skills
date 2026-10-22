@@ -1658,7 +1658,7 @@ die Messmethodik steht in
 | **G1–G6** | **Reichweite der generischen Objektebene, inkl. CKE** | **neu — Testreihe im Skill** |
 | **T1–T7** | **Textgenerator: Kappung, Makros, Modell, Reproduzierbarkeit** | **neu — T1 und T7 entscheiden** |
 | **F18** | **Maximale Promptgröße am Endpunkt** | **neu — entscheidet den Aktenbetrieb** |
-| **F19** | **Was zählt tatsächlich auf das 5-$-Limit an?** | **neu — Frage an zollsoft** |
+| **F19** | **Was zählt tatsächlich auf das 5-$-Limit an?** | **beantwortet (10/2026)** — die Budgetsperre prüft nur der tomedo-Client vor seinen eigenen KI-Aufrufen, Vorgabe 10 USD je Nutzer und Kalendermonat; direkte Endpunkt-Aufrufe umgehen sie |
 | **F20** | **Mistral-Modelle und `flash-lite`** | **neu — nicht gemessen, keine Preise hinterlegt** |
 | **F21** | **LaunchDaemon in der Systemdomäne, ohne Anmeldung** | **neu — blockiert den unbeaufsichtigten Nachtlauf** |
 
@@ -1919,9 +1919,9 @@ Nachschlagewerke — Syntaxtabellen, Fehlerkataloge, erprobte Muster.
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
 | `anker-guard-typdefinition.md` | 76 | Die drei Bausteine mit Trefferquoten aus der kontrollierten Testserie: Typdefinition drei von drei richtig, leerer Platzhalter drei von drei falsch. Enthält die Formulierungsmuster. |
-| `kommando-bibliothek.md` | 107 | Welche Briefkommandos sich als feste Vorgabe eignen, welche stille Leerwerte liefern, und die Reihenfolge: erst die Vorgabe, dann die Aufgabe. |
-| `llm-textgenerator.md` | 202 | UI-Erhebung des Generators: System-Prompt im Wortlaut, Vorlagentext, Kappungswerte 14 und 30, Makro-Hinweis — plus die offene Testliste T1 bis T7. |
-| `llm-toolebene.md` | 376 | Die Werkzeugebene nach Zugriffsarten, die Grenzen des Kartei-Abrufs, der eigene Zusammenhang der Anhangsanalyse, die Reichweite des allgemeinen Datenzugriffs — und der am 22.09.2026 verifizierte Schreibpfad. |
+| `kommando-bibliothek.md` | 138 | Welche Briefkommandos sich als feste Vorgabe eignen, welche stille Leerwerte liefern, und die Reihenfolge: erst die Vorgabe, dann die Aufgabe. |
+| `llm-textgenerator.md` | 220 | UI-Erhebung des Generators: System-Prompt im Wortlaut, Vorlagentext, Kappungswerte 14 und 30, Makro-Hinweis — plus die offene Testliste T1 bis T7. |
+| `llm-toolebene.md` | 429 | Die Werkzeugebene nach Zugriffsarten, die Grenzen des Kartei-Abrufs, der eigene Zusammenhang der Anhangsanalyse, die Reichweite des allgemeinen Datenzugriffs — und der am 22.09.2026 verifizierte Schreibpfad. |
 | `modellgrenzen-und-quellen.md` | 131 | Was das Modell nachweislich nicht leistet, wie die Quellenverknüpfung zu lesen ist — und die gemessenen Quoten aus 376 Läufen, nach Aufgabentyp geordnet. |
 | `patterns.md` | 138 | Erprobte Muster und die Gegenbeispiele, die in Läufen gescheitert sind — überladene Frage, Verbot ohne Wortliste, feste Vorgabe ohne Vorbehaltssatz. |
 | `testprotokoll.md` | 82 | Das Protokoll: Sollwerte zuerst aus dem Volltextexport ziehen, **zwanzig Läufe** für alles Produktionskritische, getrennte Wertung gegen Karteitext und gegen Anlagen. |
@@ -1951,11 +1951,11 @@ Was dann passiert: Der Skill liefert einen Prompt mit allen vier Pflichtbestandt
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `text-kommandos.md` | 817 | Der größte Katalog: Patientendaten, Karteieinträge, Diagnosen, Leistungen, Datumsformatierung, `karteiEintragWert`. |
-| `konfiguratoren-steuerkommandos.md` | 1318 | Vierzehn Konfiguratoren mit vollständiger Syntax, Steuerkommandos, `%`-Ersetzungsmuster für Termine — darunter der einzige Weg an arzt-direkt-Formularfelder. |
-| `tabellen-kommandos.md` | 297 | Tabellenplatzhalter für Leistungen, Labor, Medikation. |
-| `keypath-bild-pdf-kommandos.md` | 195 | KeyPath-Zugriffe, Bild- und PDF-Einbindung. |
-| `llm-toolebene.md` | 96 | Welche Kommandos sich im KI-Kontext als Anker eignen und welche dort stille Leerwerte erzeugen. |
+| `text-kommandos.md` | 864 | Der größte Katalog: Patientendaten, Karteieinträge, Diagnosen, Leistungen, Datumsformatierung, `karteiEintragWert`. |
+| `konfiguratoren-steuerkommandos.md` | 1677 | Vierzehn Konfiguratoren mit vollständiger Syntax, Steuerkommandos, `%`-Ersetzungsmuster für Termine — darunter der einzige Weg an arzt-direkt-Formularfelder. |
+| `tabellen-kommandos.md` | 315 | Tabellenplatzhalter für Leistungen, Labor, Medikation. |
+| `keypath-bild-pdf-kommandos.md` | 245 | KeyPath-Zugriffe, Bild- und PDF-Einbindung. |
+| `llm-toolebene.md` | 103 | Welche Kommandos sich im KI-Kontext als Anker eignen und welche dort stille Leerwerte erzeugen. |
 
 **So fragen.**
 
@@ -1981,11 +1981,11 @@ Was dann passiert: Der Skill liefert `$[formularEintrag PatF-psf-Erstanamnese sc
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `aktionstypen.md` | 237 | Vollständiger Katalog der Aktionstypen samt Angabe, welche blockierend sind und welche nicht. |
-| `ausloser.md` | 333 | Alle Auslöser mit Feuerverhalten — einschließlich der Stammdaten-Trigger, die bei jeder weiteren Änderung erneut feuern. |
-| `bedingungen.md` | 254 | Bedingungssyntax und der Operator-Fallstrick: Underscore in `$[if …]$`, camelCase in `%if(…)`, deutsche Labels in der UI. |
-| `fragen.md` | 197 | Aktionskettenfragen, Antworttypen und ihre Weiterverwendung. |
-| `ki-prompt-aktion.md` | 194 | Die Aktion „KI-Prompt": Freigabe in der Promptverwaltung, Ergebnis in eigenem Kommando, Bestätigungsdialog, verkettete KI-Schritte. |
+| `aktionstypen.md` | 334 | Vollständiger Katalog der Aktionstypen samt Angabe, welche blockierend sind und welche nicht. |
+| `ausloser.md` | 439 | Alle Auslöser mit Feuerverhalten — einschließlich der Stammdaten-Trigger, die bei jeder weiteren Änderung erneut feuern. |
+| `bedingungen.md` | 306 | Bedingungssyntax und der Operator-Fallstrick: Underscore in `$[if …]$`, camelCase in `%if(…)`, deutsche Labels in der UI. |
+| `fragen.md` | 256 | Aktionskettenfragen, Antworttypen und ihre Weiterverwendung. |
+| `ki-prompt-aktion.md` | 205 | Die Aktion „KI-Prompt": Freigabe in der Promptverwaltung, Ergebnis in eigenem Kommando, Bestätigungsdialog, verkettete KI-Schritte. |
 
 **So fragen.**
 
@@ -2011,13 +2011,13 @@ Was dann passiert: Der Skill baut die Kette und trennt dabei den blockierenden S
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `modular.md` | 401 | Alle 25 Elementtypen des modularen Modus mit Feldern, Operatoren und zulässigen Werten, dazu die Logik der Verknüpfung. |
-| `variablen.md` | 253 | Alle 150 Skriptvariablen mit Datentyp und Herkunft, dazu der Quelltext der vordefinierten Funktionen. |
-| `skriptsprache.md` | 184 | Wie tomedo ein Skript ausführt, Schlüssel der Listen, Zeitfenster, Testen und Debuggen. |
-| `zusammenspiel.md` | 108 | Wann gerechnet wird, Automatik je Patient, Aktionsketten, Briefkommandos, Statistik, Zurücksetzen. |
+| `modular.md` | 486 | Alle 25 Elementtypen des modularen Modus mit Feldern, Operatoren und zulässigen Werten, dazu die Logik der Verknüpfung. |
+| `variablen.md` | 258 | Alle 150 Skriptvariablen mit Datentyp und Herkunft, dazu der Quelltext der vordefinierten Funktionen. |
+| `skriptsprache.md` | 213 | Wie tomedo ein Skript ausführt, Schlüssel der Listen, Zeitfenster, Testen und Debuggen. |
+| `zusammenspiel.md` | 144 | Wann gerechnet wird, Automatik je Patient, Aktionsketten, Briefkommandos, Statistik, Zurücksetzen. |
 | `datenmodell.md` | 86 | Marker-Tabellen im lokalen Cache, Lese-Rezept und Vergleich vorher und nachher. |
-| `bedienung.md` | 78 | Marker-Verwaltung: was sofort speichert, sichere Arbeitsweise, Fernsteuerung per Bedienungshilfen. |
-| `fehlerbilder.md` | 63 | Meldung, Ursache, Abhilfe; Marker kommt nie, steht bei allen, hinkt hinterher. |
+| `bedienung.md` | 89 | Marker-Verwaltung: was sofort speichert, sichere Arbeitsweise, Fernsteuerung per Bedienungshilfen. |
+| `fehlerbilder.md` | 89 | Meldung, Ursache, Abhilfe; Marker kommt nie, steht bei allen, hinkt hinterher. |
 
 **So fragen.**
 
@@ -2075,16 +2075,16 @@ zollsoft-Erweiterungen und hilft bei zwei Dingen, die der Generator nicht leiste
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `conventions.md` | 159 | Namens- und `shortTitle`-Regeln im Volltext, Lokalisierungsform, Eindeutigkeit über Seiten hinweg. |
+| `conventions.md` | 168 | Namens- und `shortTitle`-Regeln im Volltext, Lokalisierungsform, Eindeutigkeit über Seiten hinweg. |
 | `element-types.md` | 223 | Alle verwendbaren Elementtypen mit Beispiel-JSON. |
 | `gestaltung.md` | 179 | Was von der Gestaltung im Browser ankommt: was der Editor beim Speichern verwirft, was arzt-direct überstimmt, CSS in HTML-Elementen, Verhalten auf dem Smartphone, Abstände zwischen Feldern. |
-| `score-builder.md` | 247 | Score-Funktionen und das Muster, jeden relevanten Wert zusätzlich als `expression` mit eigenem `shortTitle` herauszuziehen. |
-| `stammdaten-bindings.md` | 139 | Rückschrieb in die tomedo-Stammdaten. |
-| `karteitext-template.md` | 127 | `karteitextHtmlTemplate` als Render-Direktive. |
-| `permalink-api.md` | 147 | Formulare ohne Browser einsenden. |
+| `score-builder.md` | 251 | Score-Funktionen und das Muster, jeden relevanten Wert zusätzlich als `expression` mit eigenem `shortTitle` herauszuziehen. |
+| `stammdaten-bindings.md` | 179 | Rückschrieb in die tomedo-Stammdaten. |
+| `karteitext-template.md` | 142 | `karteitextHtmlTemplate` als Render-Direktive. |
+| `permalink-api.md` | 157 | Formulare ohne Browser einsenden. |
 | `page-actions.md` | 112 | Seitenaktionen und Verzweigung auf Seitenebene. |
-| `lint-rules.md` | 162 | Prüfregeln vor Abgabe, darunter G1–G17 gegen unwirksame Gestaltung. |
-| `llm-toolebene.md` | 109 | Wie Formularwerte im KI-Kontext sichtbar werden. |
+| `lint-rules.md` | 174 | Prüfregeln vor Abgabe, darunter G1–G17 gegen unwirksame Gestaltung. |
+| `llm-toolebene.md` | 125 | Wie Formularwerte im KI-Kontext sichtbar werden. |
 
 **So fragen.**
 
@@ -2110,8 +2110,8 @@ Was dann passiert: Der Skill recherchiert die gängigen Bausteine, fragt nach Zw
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `dict-format.md` | 134 | Aufbau der Exportdatei: jeder Schlüssel mit Belegstatus, alle 45 Feldarten mit internem Namen, die sechs Stufen von „Im Karteitext", offene Fragen. |
-| `editor-optionen.md` | 63 | Welche Einstellungen der Editor je Feldart anbietet, mit allen Menüwerten. |
+| `dict-format.md` | 167 | Aufbau der Exportdatei: jeder Schlüssel mit Belegstatus, alle 45 Feldarten mit internem Namen, die sechs Stufen von „Im Karteitext", offene Fragen. |
+| `editor-optionen.md` | 113 | Welche Einstellungen der Editor je Feldart anbietet, mit allen Menüwerten. |
 
 **So fragen.**
 
@@ -2138,13 +2138,13 @@ Was dann passiert: Der Skill fragt nach Kürzel und Namen, schlägt sprechende V
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
 | `datenmodell_ZOLLSOFT_DB-dump.md` | 7914 | Vollständige Tabellenreferenz aus dem Datenbank-Auszug — Nachschlagewerk, nicht zum Lesen. |
-| `datenmodell.md` | 2175 | Kuratierte Tabellenreferenz mit den praktisch relevanten Feldern. |
-| `query-bausteine.md` | 1434 | 37 bewährte Bausteine, von der Patientensegmentierung bis zur Leistungsauswertung. |
-| `lessons-learned.md` | 1175 | 46 dokumentierte Fehlerquellen: Feld existiert nicht, Ergebnis unplausibel, JOIN zieht Dubletten. |
-| `enums-und-funktionen.md` | 497 | Enum-Werte, Bitfelder und tomedo-eigene Funktionen. |
-| `join-pfade.md` | 510 | Validierte Verknüpfungswege zum Patienten. |
-| `zs-filter.md` | 270 | Syntax der dynamischen Benutzerfilter. |
-| `llm-toolebene.md` | 97 | Objektintrospektion als Zweitquelle zum Datenmodell. |
+| `datenmodell.md` | 2411 | Kuratierte Tabellenreferenz mit den praktisch relevanten Feldern. |
+| `query-bausteine.md` | 1451 | 37 bewährte Bausteine, von der Patientensegmentierung bis zur Leistungsauswertung. |
+| `lessons-learned.md` | 1262 | 46 dokumentierte Fehlerquellen: Feld existiert nicht, Ergebnis unplausibel, JOIN zieht Dubletten. |
+| `enums-und-funktionen.md` | 695 | Enum-Werte, Bitfelder und tomedo-eigene Funktionen. |
+| `join-pfade.md` | 556 | Validierte Verknüpfungswege zum Patienten. |
+| `zs-filter.md` | 360 | Syntax der dynamischen Benutzerfilter. |
+| `llm-toolebene.md` | 106 | Objektintrospektion als Zweitquelle zum Datenmodell. |
 
 **So fragen.**
 
@@ -2170,11 +2170,11 @@ Was dann passiert: Der Skill liefert die Query samt validiertem JOIN-Pfad und ZS
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `query-uebersetzung.md` | 217 | HQL nach nativem SQL, Variablen statt ZS-Filter. |
-| `deep-linking.md` | 273 | Absprung in beide Richtungen, `tomedo://patient`. |
+| `query-uebersetzung.md` | 318 | HQL nach nativem SQL, Variablen statt ZS-Filter. |
+| `deep-linking.md` | 307 | Absprung in beide Richtungen, `tomedo://patient`. |
 | `visualization-settings.md` | 160 | Templates und Semantik der Darstellungseinstellungen. |
 | `dashboard-layout.md` | 91 | Layout, Filter-Widgets, URL-Parameter. |
-| `import-scripts.md` | 165 | Card- und Settings-Automatisierung über die Metabase-API. |
+| `import-scripts.md` | 167 | Card- und Settings-Automatisierung über die Metabase-API. |
 
 **So fragen.**
 
@@ -2210,9 +2210,9 @@ Ansteuerung von außen.
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `menue-atlas.md` | 146 | Belegte Menüpfade und Pflegeorte, inklusive der Trennung Einstellungen gegen Admin und der Rollenabhängigkeit der Menüsichtbarkeit. |
-| `scriptability.md` | 201 | tomedo.sdef, Toolbar-Buttons, Ereignis-Hooks, Deeplinks, Skript-Platzhalter, API-Verwaltung. |
-| `applescript-rezeptbuch.md` | 280 | Fertige Rezepte für den Aufruf von außen: Nutzerkennung ermitteln, Prompt per Umgebungsvariable, Rückgabe in die Kartei. |
+| `menue-atlas.md` | 290 | Belegte Menüpfade und Pflegeorte, inklusive der Trennung Einstellungen gegen Admin und der Rollenabhängigkeit der Menüsichtbarkeit. |
+| `scriptability.md` | 364 | tomedo.sdef, Toolbar-Buttons, Ereignis-Hooks, Deeplinks, Skript-Platzhalter, API-Verwaltung. |
+| `applescript-rezeptbuch.md` | 286 | Fertige Rezepte für den Aufruf von außen: Nutzerkennung ermitteln, Prompt per Umgebungsvariable, Rückgabe in die Kartei. |
 
 **So fragen.**
 
@@ -2244,11 +2244,11 @@ Was dann passiert: Menü **Format**, Eintrag LLM-Textgenerator — der Generator
 
 | Begleitdatei | Zeilen | Inhalt |
 |---|---:|---|
-| `aufruf-und-parameter.md` | 137 | Endpunktschema, Positivliste der akzeptierten Modellnamen und Parameter, und warum `tools` keinen Fehler erzeugt. |
-| `fehlerdiagnose.md` | 110 | Neun geprüfte Routen, HTTP 422 und 400 im Klartext, `finish_reason: length` ohne `content`, robuste Auswertung mit `-w '%{http_code}'`. |
-| `modellwahl.md` | 115 | Welche Modellnamen der Server annimmt und was die Wahl praktisch ändert. |
-| `kosten-und-budget.md` | 182 | Die Rechenformel für Denk-Tokens, die Untertreibung des Felds `cost` und der Lasttest, in dem 10,10 $ ohne Sperre durchliefen. |
-| `betrieb-und-messung.md` | 123 | Durchsatz 2,7 Aufrufe pro Minute, Messmethodik, Mindestläufe je Arm, Kostendeckel mit getestetem Abbruchweg. |
+| `aufruf-und-parameter.md` | 156 | Endpunktschema, Positivliste der akzeptierten Modellnamen und Parameter, und warum `tools` keinen Fehler erzeugt. |
+| `fehlerdiagnose.md` | 130 | Neun geprüfte Routen, HTTP 422 und 400 im Klartext, `finish_reason: length` ohne `content`, robuste Auswertung mit `-w '%{http_code}'`. |
+| `modellwahl.md` | 117 | Welche Modellnamen der Server annimmt und was die Wahl praktisch ändert. |
+| `kosten-und-budget.md` | 207 | Die Rechenformel für Denk-Tokens, die Untertreibung des Felds `cost` und der Lasttest, in dem 10,10 $ ohne Sperre durchliefen. |
+| `betrieb-und-messung.md` | 137 | Durchsatz 2,7 Aufrufe pro Minute, Messmethodik, Mindestläufe je Arm, Kostendeckel mit getestetem Abbruchweg. |
 
 **So fragen.**
 
